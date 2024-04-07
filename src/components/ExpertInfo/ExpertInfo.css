@@ -1,0 +1,38 @@
+.expert-info-section {
+  text-align: center;
+  padding: 50px 0;
+}
+
+.expert-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.expert-card {
+  background-color: #f4f4f4;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.expert-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.expert-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.expert-card p {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+}
