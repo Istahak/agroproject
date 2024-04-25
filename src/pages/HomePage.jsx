@@ -8,7 +8,7 @@ import Footer from "../components/Footer/Footer";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="homePage">
       <Header />
       <Navbar />
       <Hero />
