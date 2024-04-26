@@ -1,0 +1,23 @@
+.post{
+    width: 1000px;
+    margin: 30px 40px 50px 40px;
+}
+.head{
+    margin: 0px 10px 0px 10px;
+    font-weight: bolder;
+    color: rgb(66, 160, 218);
+}
+.postText{
+    margin-top:5px;
+    margin-left: 15px;
+}
+.postImage >img{
+    width:100%;
+    border-radius: 10px;
+    border: 3px solid rgb(200, 222, 242);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.postButton{
+    margin: 2px 8px 4px 8px;
+}

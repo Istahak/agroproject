@@ -1,17 +1,19 @@
 .hero-section {
   position: relative;
-  height: 10%;
+  overflow: hidden;
+  height: 1%;
   width: 100%;
 }
 
 .story-slide {
   position: relative;
   height: 100%;
-  background-size: 100% 100%; /* Adjust background size */
+  width: 100%;
+  background-size: 100% 100%;
   
 }
 
-.story-slide img {
+.story-slide > img {
   height: 100%;
   width: 100%;
   object-fit: cover;

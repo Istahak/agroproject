@@ -8,7 +8,7 @@ import Footer from "../components/Footer/Footer";
 import "../assets/Style/HomePage.css";
 const HomePage = () => {
   return (
-    <div className="Home-page">
+    <div className="homePage">
       <Header />
       <Navbar />
       <Hero />
