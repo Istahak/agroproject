@@ -10,6 +10,14 @@ import GeminiPage from './pages/GeminiPage';
 import Calender from './pages/Calender';
 
 const App = () => {
+
+  const [isChatOpen, setIsChatOpen] = useState(false);
+
+  const toggleChat = () => {
+    setIsChatOpen(!isChatOpen);
+  };
+
+
   return (
     <BrowserRouter>
       <Routes>
@@ -22,6 +30,8 @@ const App = () => {
         <Route path ="/" element={<Calender/>}/>
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
+      <FloatingChatButton onClick={toggleChat} />
+      <ChatWindow isOpen={isChatOpen} onClose={toggleChat} />
     </BrowserRouter>
   );
 };

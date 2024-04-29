@@ -1,0 +1,14 @@
+/* ChatWindow.css */
+.chat-window {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 70%;
+    height: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    z-index: 9999; /* Ensure it's above other content */
+    
+  }
+  
