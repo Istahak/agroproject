@@ -1,11 +1,13 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect,useState } from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from './pages/HomePage';
-import SignUpPage from './pages/SignUpPage'; // Import SignUpPage component
+import SignUpPage from './pages/SignUpPage'; 
 import LoginPage from './pages/LoginPage';
 import TimeLine from './pages/TimeLine';
 import WeatherPage from './pages/WeatherPage';
-import { useStateContext } from './Context';
+import FloatingChatButton from './components/FloatingChatButton/FloatingChatButton';
+import ChatWindow from './components/ChatWindow/ChatWindow';
+import AgriCalendarPage from './pages/AgriCalendarPage';
 
 const App = () => {
 
@@ -19,11 +21,12 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/k" element={<HomePage />} />
-        <Route path="/signup" element={<SignUpPage />} /> {/* Add SignUpPage to routes */}
-        <Route path="/login" element={<LoginPage />} /> {/* Add LoginPage to routes */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/signup" element={<SignUpPage />} /> 
+        <Route path="/login" element={<LoginPage />} /> 
         <Route path ="/A" element={<TimeLine/>}/>
-        <Route path ="/" element={<WeatherPage/>}/>
+        <Route path ="/B" element={<WeatherPage/>}/>
+        <Route path ="/C" element={<AgriCalendarPage/>}/>
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
       <FloatingChatButton onClick={toggleChat} />
