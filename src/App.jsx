@@ -8,6 +8,8 @@ import WeatherPage from './pages/WeatherPage';
 import FloatingChatButton from './components/FloatingChatButton/FloatingChatButton';
 import ChatWindow from './components/ChatWindow/ChatWindow';
 import AgriCalendarPage from './pages/AgriCalendarPage';
+import GeminiPage from './pages/GeminiPage';
+import Calender from './pages/Calender';
 
 const App = () => {
 
@@ -21,12 +23,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/signup" element={<SignUpPage />} /> 
-        <Route path="/login" element={<LoginPage />} /> 
-        <Route path ="/A" element={<TimeLine/>}/>
-        <Route path ="/B" element={<WeatherPage/>}/>
-        <Route path ="/C" element={<AgriCalendarPage/>}/>
+        <Route path="/ll" element={<HomePage />} />
+        <Route path="/signup" element={<SignUpPage />} /> {/* Add SignUpPage to routes */}
+        <Route path="/login" element={<LoginPage />} /> {/* Add LoginPage to routes */}
+        <Route path ="/l" element={<TimeLine/>}/>
+        <Route path ="/po" element={<WeatherPage/>}/>
+        <Route path ="/s" element={<GeminiPage/>}/>
+        <Route path ="/" element={<Calender/>}/>
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
       <FloatingChatButton onClick={toggleChat} />

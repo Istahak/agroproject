@@ -1,8 +1,7 @@
 .hero-section {
   position: relative;
   overflow: hidden;
-  height: 1%;
-  width: 100%;
+  width: 50%;
 }
 
 .story-slide {
