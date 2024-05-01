@@ -11,6 +11,11 @@ import { toast } from "react-toastify";
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
+
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
+  const [emailRegistered, setEmailRegistered] = useState(false);
+
+
   const navigate = useNavigate();
   const [token, setToken] = useState(
     JSON.parse(localStorage.getItem("auth")) || ""
@@ -32,22 +37,37 @@ const SignUpPage = () => {
       confirmPassword.length > 0
     ) {
       if (password === confirmPassword) {
+        setPasswordsMatch(true);
+        setEmailRegistered(false);
         const formData = {
-          username: name + " " + lastname,
-          email,
-          password,
+          Username: name + " " + lastname,
+          email: email,
+          password: password,
         };
+
         try {
           const response = await axios.post(
-            "http://localhost:3000/api/v1/register",
+            "http://localhost:8000/addusers",
             formData
           );
-          toast.success("Registration successfull");
+          toast.success("Registration successful");
           navigate("/login");
         } catch (err) {
-          toast.error(err.message);
+          if (
+            err.response &&
+            err.response.status === 400 &&
+            err.response.data.detail === "Email already registered"
+          ) {
+            setEmailRegistered(true);
+            toast.error(
+              "This email is already registered. Please use a different email."
+            );
+          } else {
+            toast.error(err.message);
+          }
         }
       } else {
+        setPasswordsMatch(false);
         toast.error("Passwords don't match");
       }
     } else {
@@ -58,7 +78,7 @@ const SignUpPage = () => {
   useEffect(() => {
     if (token !== "") {
       toast.success("You already logged in");
-      navigate("/dashboard");
+      navigate("/Login");
     }
   }, []);
 
@@ -136,6 +156,20 @@ const SignUpPage = () => {
                   />
                 )}
               </div>
+              <span
+                className="pass-text"
+                style={{ visibility: passwordsMatch ? "hidden" : "visible" }}
+              >
+                Password didn't match
+              </span>
+
+              
+                <span className="email-text" style={{visibility: emailRegistered ? "visible" : "hidden"}}>
+                  This email is already registered. Please use a different
+                  email.
+                </span>
+              
+
               <div className="register-center-buttons">
                 <button type="submit">Sign Up</button>
                 <button type="submit">

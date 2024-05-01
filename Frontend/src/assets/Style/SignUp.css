@@ -185,3 +185,17 @@ form button[type='submit'] {
 .register-bottom-p a:hover{
   text-decoration: underline;
 }
+
+.pass-text{
+  visibility: hidden;
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}
+
+.email-text{
+  visibility: hidden;
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}

@@ -6,6 +6,10 @@ import LoginPage from './pages/LoginPage';
 import TimeLine from './pages/TimeLine';
 import WeatherPage from './pages/WeatherPage';
 import { useStateContext } from './Context';
+import FloatingChatButton from './components/FloatingChatButton/FloatingChatButton'
+import ChatWindow from './components/ChatWindow/ChatWindow'
+import GeminiPage from './pages/GeminiPage'
+import CropInfoPage from './pages/CropInfoPage';
 
 const App = () => {
 
@@ -19,11 +23,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/k" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} /> {/* Add SignUpPage to routes */}
         <Route path="/login" element={<LoginPage />} /> {/* Add LoginPage to routes */}
         <Route path ="/A" element={<TimeLine/>}/>
-        <Route path ="/" element={<WeatherPage/>}/>
+        <Route path ="/k" element={<WeatherPage/>}/>
+        <Route path ="/g" element={<GeminiPage/>}/>
+        <Route path="/cropinfo" element={<CropInfoPage/>}/>
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
       <FloatingChatButton onClick={toggleChat} />
