@@ -6,10 +6,10 @@ import Features from "../components/Feature/Features";
 import ExpertInfo from "../components/ExpertInfo/ExpertInfo";
 import Footer from "../components/Footer/Footer";
 import "../assets/Style/HomePage.css";
-const HomePage = () => {
+const HomePage = ({isLoggedIn,setIsLoggedIn}) => {
   return (
     <div className="homePage">
-      <Header />
+      <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       <Navbar />
       <Hero />
       <Features/>

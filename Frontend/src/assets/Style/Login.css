@@ -179,3 +179,10 @@ form button[type="submit"] {
 .login-bottom-p a:hover {
   text-decoration: underline;
 }
+
+.email-text{
+  visibility: hidden;
+  color: red;
+  font-size: 13px;
+  margin-top: 5px;
+}

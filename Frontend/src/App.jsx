@@ -14,16 +14,16 @@ import CropInfoPage from './pages/CropInfoPage';
 const App = () => {
 
   const [isChatOpen, setIsChatOpen] = useState(false);
-
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
   };
-
+  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
         <Route path="/signup" element={<SignUpPage />} /> {/* Add SignUpPage to routes */}
         <Route path="/login" element={<LoginPage />} /> {/* Add LoginPage to routes */}
         <Route path ="/A" element={<TimeLine/>}/>

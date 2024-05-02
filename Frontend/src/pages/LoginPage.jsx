@@ -9,12 +9,15 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const LoginPage = () => {
+const LoginPage = ({isLoggedIn,setIsLoggedIn}) => {
   const [showPassword, setShowPassword] = useState(false);
-  const [token, setToken] = useState(
-    JSON.parse(localStorage.getItem("auth")) || ""
-  );
+  const [rememberMe, setRememberMe] = useState(false);
+  const [invalidCredentials, setInvalidCredentials] = useState(false);
   const navigate = useNavigate();
+
+  const handleRememberMeChange = (e) => {
+    setRememberMe(e.target.checked);
+  };
 
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
@@ -23,32 +26,49 @@ const LoginPage = () => {
 
     if (email.length > 0 && password.length > 0) {
       const formData = {
-        email,
-        password,
+        email: email,
+        password: password,
+        rememberMe: rememberMe,
       };
       try {
         const response = await axios.post(
-          "http://localhost:3000/api/v1/login",
+          "http://localhost:8000/login",
           formData
         );
-        localStorage.setItem("auth", JSON.stringify(response.data.token));
+        localStorage.setItem("auth", JSON.stringify(response.data));
         toast.success("Login successfull");
-        navigate("/dashboard");
+
+        const authTokenString = localStorage.getItem("auth");
+
+        if (authTokenString) {
+          try {
+            const authToken = JSON.parse(authTokenString);
+            const response1 = await axios.get("http://localhost:8000/users/me", {
+              headers: {
+                Authorization: `Bearer ${authToken.access_token}`,
+              },
+            });
+            const username = response1.data.user_name;
+            localStorage.setItem("username", username);
+            isLoggedIn = true;
+            navigate("/", { state: {isLoggedIn :{isLoggedIn}, username: {username} } });
+          } catch (error) {
+            console.error("Error parsing auth token:", error);
+          }
+        } else {
+          console.error("No auth token found in localStorage");
+        }
       } catch (err) {
         console.log(err);
+        if (err.response.status === 404) {
+          setInvalidCredentials(true);
+        }
         toast.error(err.message);
       }
     } else {
       toast.error("Please fill all inputs");
     }
   };
-
-  useEffect(() => {
-    if (token !== "") {
-      toast.success("You already logged in");
-      navigate("/dashboard");
-    }
-  }, []);
 
   return (
     <div className="login-main">
@@ -88,7 +108,12 @@ const LoginPage = () => {
 
               <div className="login-center-options">
                 <div className="remember-div">
-                  <input type="checkbox" id="remember-checkbox" />
+                  <input
+                    type="checkbox"
+                    id="remember-checkbox"
+                    checked={rememberMe}
+                    onChange={handleRememberMeChange}
+                  />
                   <label htmlFor="remember-checkbox">
                     Remember for 30 days
                   </label>
@@ -97,6 +122,15 @@ const LoginPage = () => {
                   Forgot password?
                 </a>
               </div>
+              <span
+                className="email-text"
+                style={{
+                  visibility: invalidCredentials ? "visible" : "hidden",
+                }}
+              >
+                Invalid email or password. Please try again.
+              </span>
+
               <div className="login-center-buttons">
                 <button type="submit">Log In</button>
                 <button type="submit">

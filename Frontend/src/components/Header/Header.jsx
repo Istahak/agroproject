@@ -1,22 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import logo from "../../assets/images/logo.png";
+import axios from "axios";
 
-const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState("Istahak");
+const Header = ({ isLoggedIn, setIsLoggedIn }) => {
+  const [username, setUsername] = useState("");
 
-  const handleLogin = () => {
-    // Logic to handle login
-    setIsLoggedIn(true);
-    setUsername("Istahak"); // Assuming the username is fetched after login
-  };
+  useEffect(() => {
+    // Fetch the username from localStorage when the component mounts
+    const storedUsername = localStorage.getItem("username");
+    if (storedUsername) {
+      setUsername(storedUsername);
+      setIsLoggedIn(true);
+    }
+  }, []);
+
 
   const handleLogout = () => {
     // Logic to handle logout
     setIsLoggedIn(false);
-    setUsername("Istahak");
+    localStorage.removeItem("auth");
+    localStorage.removeItem("username");
   };
 
   return (
@@ -32,10 +37,13 @@ const Header = () => {
         </div>
       ) : (
         <div>
-          <Link to="/login">
-            <button className="loginbutton" onClick={handleLogin}>
-              Log in
-            </button>
+          <Link
+            to={{
+              pathname: "/login",
+              state: { isLoggedIn: isLoggedIn },
+            }}
+          >
+            <button className="loginbutton">Log in</button>
           </Link>
           <Link to="/signup">
             <button className="signupbutton">Sign up</button>

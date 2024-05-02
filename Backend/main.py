@@ -9,18 +9,19 @@ import models, schemas as schemas,utils
 
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import user
+from routers import user, auth
 
 models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 app.include_router(user.router)
+app.include_router(auth.router)
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 
