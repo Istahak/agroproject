@@ -15,16 +15,20 @@ import Chatting from './pages/Chatting';
 const App = () => {
 
   const [isChatOpen, setIsChatOpen] = useState(false);
-
   const toggleChat = () => {
     setIsChatOpen(!isChatOpen);
   };
-
+  
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <BrowserRouter>
       <Routes>
+<<<<<<< HEAD
         <Route path="/kj" element={<HomePage />} />
+=======
+        <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
+>>>>>>> 5615a326e61498133ba6241226608830de85feae
         <Route path="/signup" element={<SignUpPage />} /> {/* Add SignUpPage to routes */}
         <Route path="/login" element={<LoginPage />} /> {/* Add LoginPage to routes */}
         <Route path ="/A" element={<TimeLine/>}/>
