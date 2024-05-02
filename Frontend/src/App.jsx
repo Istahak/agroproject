@@ -10,6 +10,7 @@ import FloatingChatButton from './components/FloatingChatButton/FloatingChatButt
 import ChatWindow from './components/ChatWindow/ChatWindow'
 import GeminiPage from './pages/GeminiPage'
 import CropInfoPage from './pages/CropInfoPage';
+import Chatting from './pages/Chatting';
 
 const App = () => {
 
@@ -23,12 +24,13 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<HomePage />} />
+        <Route path="/kj" element={<HomePage />} />
         <Route path="/signup" element={<SignUpPage />} /> {/* Add SignUpPage to routes */}
         <Route path="/login" element={<LoginPage />} /> {/* Add LoginPage to routes */}
         <Route path ="/A" element={<TimeLine/>}/>
         <Route path ="/k" element={<WeatherPage/>}/>
         <Route path ="/g" element={<GeminiPage/>}/>
+        <Route path ="/" element={<Chatting/>}/>
         <Route path="/cropinfo" element={<CropInfoPage/>}/>
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
