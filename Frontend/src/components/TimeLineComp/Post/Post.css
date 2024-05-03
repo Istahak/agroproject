@@ -1,15 +1,21 @@
 .post{
     width: 1000px;
     margin: 30px 40px 50px 40px;
+    padding: 3rem;
+    border: 1px;
+    border-style: solid;
+    background-color: aliceblue;
 }
 .head{
     margin: 0px 10px 0px 10px;
     font-weight: bolder;
-    color: rgb(66, 160, 218);
+    color: rgb(16, 37, 51);
 }
 .postText{
     margin-top:5px;
     margin-left: 15px;
+    color: rgb(16, 37, 51);
+    font-size: large;
 }
 .postImage >img{
     width:100%;

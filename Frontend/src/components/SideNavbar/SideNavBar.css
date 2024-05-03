@@ -7,6 +7,10 @@
     flex-direction: column;
     justify-content: space-between;
     z-index: 1;
+    opacity: 40%;
+    /* backdrop-filter: blur(20px);
+    backdrop-blur-lg;
+    bg-opacity-0; */
 }
 .logo{
     width: 50%;
@@ -30,10 +34,11 @@
     padding: 10px 15px 10px 15px; 
     border-radius: 15px;
     width: 100%;
+    color: rgb(3, 35, 86);
 }
 .sideButton:hover{
     cursor: pointer;
-    background-color: aliceblue;
+    background-color: rgb(75, 180, 48);
 }
 .sideButton > span{
     font-size: 18px;

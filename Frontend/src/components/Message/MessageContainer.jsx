@@ -33,7 +33,11 @@ const MessageContainer = () => {
           </div>
 
           <Messages messages={messageList} />
-          <MessageInput onSendMessage={handleSendMessage} />
+          <MessageInput
+            onSendMessage={handleSendMessage}
+            conversationId={id}
+            conversationName={name}
+          />
         </>
       )}
     </div>
