@@ -5,6 +5,7 @@ import sqlalchemy
 from typing import List, Optional
 
 
+
 class User(BaseModel):
     Username: str
     email: EmailStr
@@ -39,6 +40,7 @@ class ExpertBase(BaseModel):
 
 class ExpertCreate(ExpertBase):
     pass
+
 
 class ExpertUpdate(ExpertBase):
     pass

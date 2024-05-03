@@ -9,7 +9,7 @@ const MessageInput = ({ onSendMessage }) => {
   };
 
   const handleSubmit = (e) => {
-    console.log("hei");
+    // console.log("hei");
     e.preventDefault();
     // Call the callback function from the parent component
     onSendMessage(inputValue);

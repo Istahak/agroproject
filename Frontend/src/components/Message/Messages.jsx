@@ -3,7 +3,7 @@ import Message from "./Message";
 
 const Messages = (messageObject) => {
   const messageList = messageObject.messages;
-  console.log(messageList[0]);
+  // console.log(messageList[0]);
   return (
     <div className="px-4 flex-1 overflow-auto">
       {messageList.map((message) => (

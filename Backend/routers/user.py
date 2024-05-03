@@ -20,7 +20,7 @@ async def read_users_me(current_user: schemas.TokenData = Depends(get_current_us
     print(user)
     if user is None:
         raise HTTPException(status_code=404, detail="User not found")
-    return {"user_name": user.Username}
+    return {"user_name": user.Username, "user_id":user.id}
 
 
 
