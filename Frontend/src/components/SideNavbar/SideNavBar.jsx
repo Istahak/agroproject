@@ -34,12 +34,6 @@ function SideNavBar() {
                 <span>Help</span>
             </button>
         </div>
-        <div className="sideNavMore">
-            <button className='sideButton'>
-                <MoreVertIcon/>
-                <span>More</span>
-            </button>
-        </div>
     </div>
   )
 }

@@ -24,13 +24,36 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+        <Route path="/kj" element={<HomePage />} />
+<<<<<<< HEAD
+        <Route path="/kgb" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
+=======
+>>>>>>> a45c24f080332b0b0ded147a0f5519d9c97ef6a7
+>>>>>>> c5af6f42c767902d3fb8bc014f501eeac7852587
         <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
+>>>>>>> df67879574671a72f5186790fe8577e1d767cf49
         <Route path="/signup" element={<SignUpPage />} /> {/* Add SignUpPage to routes */}
         <Route path="/login" element={<LoginPage />} /> {/* Add LoginPage to routes */}
-        <Route path ="/A" element={<TimeLine/>}/>
-        <Route path ="/k" element={<WeatherPage/>}/>
+        <Route path ="/" element={<TimeLine/>}/>
+        <Route path ="/jyf" element={<WeatherPage/>}/>
         <Route path ="/g" element={<GeminiPage/>}/>
+<<<<<<< HEAD
         <Route path ="/ch" element={<Chatting/>}/>
+=======
+<<<<<<< HEAD
+        <Route path ="/jgd" element={<Chatting/>}/>
+=======
+<<<<<<< HEAD
+        <Route path ="/ch" element={<Chatting/>}/>
+=======
+        <Route path ="/lj" element={<Chatting/>}/>
+>>>>>>> a45c24f080332b0b0ded147a0f5519d9c97ef6a7
+>>>>>>> df67879574671a72f5186790fe8577e1d767cf49
+>>>>>>> c5af6f42c767902d3fb8bc014f501eeac7852587
         <Route path="/cropinfo" element={<CropInfoPage/>}/>
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
