@@ -1,5 +1,14 @@
 [
     {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "timedelta",
         "importPath": "datetime",
         "description": "datetime",
@@ -25,6 +34,14 @@
     },
     {
         "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
         "importPath": "datetime",
         "description": "datetime",
         "isExtraImport": true,
@@ -65,6 +82,86 @@
     },
     {
         "label": "Response",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "Depends",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "HTTPException",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "status",
+        "importPath": "fastapi",
+        "description": "fastapi",
+        "isExtraImport": true,
+        "detail": "fastapi",
+        "documentation": {}
+    },
+    {
+        "label": "APIRouter",
         "importPath": "fastapi",
         "description": "fastapi",
         "isExtraImport": true,
@@ -216,6 +313,22 @@
         "documentation": {}
     },
     {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
+        "label": "Session",
+        "importPath": "sqlalchemy.orm",
+        "description": "sqlalchemy.orm",
+        "isExtraImport": true,
+        "detail": "sqlalchemy.orm",
+        "documentation": {}
+    },
+    {
         "label": "sessionmaker",
         "importPath": "sqlalchemy.orm",
         "description": "sqlalchemy.orm",
@@ -241,12 +354,76 @@
         "documentation": {}
     },
     {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Annotated",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Union",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "List",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Optional",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
         "label": "models,",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "models.",
         "description": "models.",
         "detail": "models.",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "get_db",
+        "importPath": "database",
+        "description": "database",
+        "isExtraImport": true,
+        "detail": "database",
         "documentation": {}
     },
     {
@@ -279,6 +456,14 @@
         "description": "database",
         "isExtraImport": true,
         "detail": "database",
+        "documentation": {}
+    },
+    {
+        "label": "get_current_user",
+        "importPath": "oauth2",
+        "description": "oauth2",
+        "isExtraImport": true,
+        "detail": "oauth2",
         "documentation": {}
     },
     {
@@ -330,6 +515,15 @@
         "documentation": {}
     },
     {
+        "label": "sqlalchemy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "create_engine",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
@@ -355,6 +549,14 @@
     },
     {
         "label": "String",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "JSON",
         "importPath": "sqlalchemy",
         "description": "sqlalchemy",
         "isExtraImport": true,
@@ -394,44 +596,27 @@
         "documentation": {}
     },
     {
+        "label": "Boolean",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
+        "label": "DateTime",
+        "importPath": "sqlalchemy",
+        "description": "sqlalchemy",
+        "isExtraImport": true,
+        "detail": "sqlalchemy",
+        "documentation": {}
+    },
+    {
         "label": "declarative_base",
         "importPath": "sqlalchemy.ext.declarative",
         "description": "sqlalchemy.ext.declarative",
         "isExtraImport": true,
         "detail": "sqlalchemy.ext.declarative",
-        "documentation": {}
-    },
-    {
-        "label": "typing",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "typing",
-        "description": "typing",
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Optional",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Annotated",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
-        "documentation": {}
-    },
-    {
-        "label": "Union",
-        "importPath": "typing",
-        "description": "typing",
-        "isExtraImport": true,
-        "detail": "typing",
         "documentation": {}
     },
     {
@@ -469,6 +654,22 @@
     },
     {
         "label": "auth",
+        "importPath": "routers",
+        "description": "routers",
+        "isExtraImport": true,
+        "detail": "routers",
+        "documentation": {}
+    },
+    {
+        "label": "expert",
+        "importPath": "routers",
+        "description": "routers",
+        "isExtraImport": true,
+        "detail": "routers",
+        "documentation": {}
+    },
+    {
+        "label": "chat",
         "importPath": "routers",
         "description": "routers",
         "isExtraImport": true,
@@ -576,6 +777,78 @@
         "documentation": {}
     },
     {
+        "label": "get_chat_history",
+        "kind": 2,
+        "importPath": "Backend.routers.chat",
+        "description": "Backend.routers.chat",
+        "peekOfCode": "def get_chat_history(chat_id: str,db: Session = Depends(get_db)):\n    chat_his = db.query(models.ChatHistory).filter(models.ChatHistory.chat_id == chat_id).all()\n    # sort based on timestamp\n    chat_his.sort(key=lambda x: x.timestamp)\n    return chat_his\n@router.post(\"/chat\", response_model=schemas.ChatHistoryBase)\ndef create_chat_history(chat: schemas.ChatHistoryBase, db: Session = Depends(get_db)):\n    db_chat = models.ChatHistory(**chat.model_dump())\n    print(db_chat)\n    db.add(db_chat)",
+        "detail": "Backend.routers.chat",
+        "documentation": {}
+    },
+    {
+        "label": "create_chat_history",
+        "kind": 2,
+        "importPath": "Backend.routers.chat",
+        "description": "Backend.routers.chat",
+        "peekOfCode": "def create_chat_history(chat: schemas.ChatHistoryBase, db: Session = Depends(get_db)):\n    db_chat = models.ChatHistory(**chat.model_dump())\n    print(db_chat)\n    db.add(db_chat)\n    db.commit()\n    db.refresh(db_chat)\n    return db_chat",
+        "detail": "Backend.routers.chat",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "Backend.routers.chat",
+        "description": "Backend.routers.chat",
+        "peekOfCode": "router = APIRouter()\n@router.get(\"/chat/{chat_id}\", response_model=List[schemas.ChatHistoryBase])\ndef get_chat_history(chat_id: str,db: Session = Depends(get_db)):\n    chat_his = db.query(models.ChatHistory).filter(models.ChatHistory.chat_id == chat_id).all()\n    # sort based on timestamp\n    chat_his.sort(key=lambda x: x.timestamp)\n    return chat_his\n@router.post(\"/chat\", response_model=schemas.ChatHistoryBase)\ndef create_chat_history(chat: schemas.ChatHistoryBase, db: Session = Depends(get_db)):\n    db_chat = models.ChatHistory(**chat.model_dump())",
+        "detail": "Backend.routers.chat",
+        "documentation": {}
+    },
+    {
+        "label": "get_experts",
+        "kind": 2,
+        "importPath": "Backend.routers.expert",
+        "description": "Backend.routers.expert",
+        "peekOfCode": "def get_experts(db: Session = Depends(get_db)):\n    return db.query(models.Expert).all()\n@router.post(\"/experts/\", response_model=schemas.Expert)\ndef create_expert(expert: schemas.ExpertCreate, db: Session = Depends(get_db)):\n    db_expert = models.Expert(**expert.model_dump())\n    db.add(db_expert)\n    db.commit()\n    db.refresh(db_expert)\n    return db_expert\n@router.put(\"/experts/{expert_id}\", response_model=schemas.Expert)",
+        "detail": "Backend.routers.expert",
+        "documentation": {}
+    },
+    {
+        "label": "create_expert",
+        "kind": 2,
+        "importPath": "Backend.routers.expert",
+        "description": "Backend.routers.expert",
+        "peekOfCode": "def create_expert(expert: schemas.ExpertCreate, db: Session = Depends(get_db)):\n    db_expert = models.Expert(**expert.model_dump())\n    db.add(db_expert)\n    db.commit()\n    db.refresh(db_expert)\n    return db_expert\n@router.put(\"/experts/{expert_id}\", response_model=schemas.Expert)\ndef update_expert(expert_id: int, expert: schemas.ExpertUpdate, db: Session = Depends(get_db)):\n    db_expert = db.query(models.Expert).filter(models.Expert.id == expert_id).first()\n    if db_expert is None:",
+        "detail": "Backend.routers.expert",
+        "documentation": {}
+    },
+    {
+        "label": "update_expert",
+        "kind": 2,
+        "importPath": "Backend.routers.expert",
+        "description": "Backend.routers.expert",
+        "peekOfCode": "def update_expert(expert_id: int, expert: schemas.ExpertUpdate, db: Session = Depends(get_db)):\n    db_expert = db.query(models.Expert).filter(models.Expert.id == expert_id).first()\n    if db_expert is None:\n        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=\"Expert not found\")\n    for var, value in vars(expert).items():\n        setattr(db_expert, var, value) if value is not None else None\n    db.commit()\n    db.refresh(db_expert)\n    return db_expert\n@router.delete(\"/experts/{expert_id}\", response_model=schemas.Expert)",
+        "detail": "Backend.routers.expert",
+        "documentation": {}
+    },
+    {
+        "label": "delete_expert",
+        "kind": 2,
+        "importPath": "Backend.routers.expert",
+        "description": "Backend.routers.expert",
+        "peekOfCode": "def delete_expert(expert_id: int, db: Session = Depends(get_db)):\n    db_expert = db.query(models.Expert).filter(models.Expert.id == expert_id).first()\n    if db_expert is None:\n        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=\"Expert not found\")\n    db.delete(db_expert)\n    db.commit()\n    return db_expert",
+        "detail": "Backend.routers.expert",
+        "documentation": {}
+    },
+    {
+        "label": "router",
+        "kind": 5,
+        "importPath": "Backend.routers.expert",
+        "description": "Backend.routers.expert",
+        "peekOfCode": "router = APIRouter()\n@router.get(\"/experts\", response_model=list[schemas.ExpertBase])\ndef get_experts(db: Session = Depends(get_db)):\n    return db.query(models.Expert).all()\n@router.post(\"/experts/\", response_model=schemas.Expert)\ndef create_expert(expert: schemas.ExpertCreate, db: Session = Depends(get_db)):\n    db_expert = models.Expert(**expert.model_dump())\n    db.add(db_expert)\n    db.commit()\n    db.refresh(db_expert)",
+        "detail": "Backend.routers.expert",
+        "documentation": {}
+    },
+    {
         "label": "users",
         "kind": 2,
         "importPath": "Backend.routers.user",
@@ -661,7 +934,7 @@
         "kind": 5,
         "importPath": "Backend.main",
         "description": "Backend.main",
-        "peekOfCode": "app = FastAPI()\napp.include_router(user.router)\napp.include_router(auth.router)\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],\n    allow_credentials=True,\n    allow_methods=[\"GET\", \"POST\", \"PUT\", \"DELETE\", \"OPTIONS\"],\n    allow_headers=[\"*\"],\n)",
+        "peekOfCode": "app = FastAPI()\napp.include_router(user.router)\napp.include_router(auth.router)\napp.include_router(expert.router)\napp.include_router(chat.router)\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],\n    allow_credentials=True,\n    allow_methods=[\"GET\", \"POST\", \"PUT\", \"DELETE\", \"OPTIONS\"],",
         "detail": "Backend.main",
         "documentation": {}
     },
@@ -670,7 +943,25 @@
         "kind": 6,
         "importPath": "Backend.models",
         "description": "Backend.models",
-        "peekOfCode": "class Users(Base):\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True,autoincrement=True)\n    Username = Column(String,nullable=False)\n    email = Column(String,nullable=False)\n    password = Column(String,nullable=False)",
+        "peekOfCode": "class Users(Base):\n    __tablename__ = \"users\"\n    id = Column(Integer, primary_key=True,autoincrement=True)\n    Username = Column(String,nullable=False)\n    email = Column(String,nullable=False)\n    password = Column(String,nullable=False)\nclass Expert(Base):\n    __tablename__ = \"experts\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, index=True)",
+        "detail": "Backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "Expert",
+        "kind": 6,
+        "importPath": "Backend.models",
+        "description": "Backend.models",
+        "peekOfCode": "class Expert(Base):\n    __tablename__ = \"experts\"\n    id = Column(Integer, primary_key=True, index=True)\n    name = Column(String, index=True)\n    specialty = Column(String)\n    image_url = Column(String, nullable=True)\n    qualifications = Column(String, nullable=True)\n    achievements = Column(JSON, nullable=True)\nclass ChatHistory(Base):\n    __tablename__ = \"chat_history\"",
+        "detail": "Backend.models",
+        "documentation": {}
+    },
+    {
+        "label": "ChatHistory",
+        "kind": 6,
+        "importPath": "Backend.models",
+        "description": "Backend.models",
+        "peekOfCode": "class ChatHistory(Base):\n    __tablename__ = \"chat_history\"\n    id = Column(Integer, primary_key=True, index=True, autoincrement=True)\n    chat_id = Column(String)\n    sender = Column(Boolean, nullable=False)\n    message = Column(String, nullable=False)\n    timestamp = Column(DateTime, nullable=False)",
         "detail": "Backend.models",
         "documentation": {}
     },
@@ -751,7 +1042,7 @@
         "kind": 6,
         "importPath": "Backend.schemas",
         "description": "Backend.schemas",
-        "peekOfCode": "class UserOut(BaseModel):\n    username: str\n    email: EmailStr\n    class Config:\n        orm_mode = True\nclass UserLogin(BaseModel):\n    email: str\n    password: str\n    remember_me: typing.Optional[bool] = False\nclass Token(BaseModel):",
+        "peekOfCode": "class UserOut(BaseModel):\n    username: str\n    email: EmailStr\n    class Config:\n        orm_mode = True\nclass UserLogin(BaseModel):\n    email: str\n    password: str\n    remember_me: Optional[bool] = False\nclass Token(BaseModel):",
         "detail": "Backend.schemas",
         "documentation": {}
     },
@@ -760,7 +1051,7 @@
         "kind": 6,
         "importPath": "Backend.schemas",
         "description": "Backend.schemas",
-        "peekOfCode": "class UserLogin(BaseModel):\n    email: str\n    password: str\n    remember_me: typing.Optional[bool] = False\nclass Token(BaseModel):\n    access_token: str\n    token_type: str\nclass TokenData(BaseModel):\n    user_id: typing.Optional[str] = None",
+        "peekOfCode": "class UserLogin(BaseModel):\n    email: str\n    password: str\n    remember_me: Optional[bool] = False\nclass Token(BaseModel):\n    access_token: str\n    token_type: str\nclass TokenData(BaseModel):\n    user_id: Optional[str] = None    \nclass ExpertBase(BaseModel):",
         "detail": "Backend.schemas",
         "documentation": {}
     },
@@ -769,7 +1060,7 @@
         "kind": 6,
         "importPath": "Backend.schemas",
         "description": "Backend.schemas",
-        "peekOfCode": "class Token(BaseModel):\n    access_token: str\n    token_type: str\nclass TokenData(BaseModel):\n    user_id: typing.Optional[str] = None",
+        "peekOfCode": "class Token(BaseModel):\n    access_token: str\n    token_type: str\nclass TokenData(BaseModel):\n    user_id: Optional[str] = None    \nclass ExpertBase(BaseModel):\n    name: str\n    specialty: str\n    image_url: Optional[str] = None\n    qualifications: Optional[str] = None",
         "detail": "Backend.schemas",
         "documentation": {}
     },
@@ -778,7 +1069,52 @@
         "kind": 6,
         "importPath": "Backend.schemas",
         "description": "Backend.schemas",
-        "peekOfCode": "class TokenData(BaseModel):\n    user_id: typing.Optional[str] = None",
+        "peekOfCode": "class TokenData(BaseModel):\n    user_id: Optional[str] = None    \nclass ExpertBase(BaseModel):\n    name: str\n    specialty: str\n    image_url: Optional[str] = None\n    qualifications: Optional[str] = None\n    achievements: Optional[List[str]] = None\nclass ExpertCreate(ExpertBase):\n    pass",
+        "detail": "Backend.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "ExpertBase",
+        "kind": 6,
+        "importPath": "Backend.schemas",
+        "description": "Backend.schemas",
+        "peekOfCode": "class ExpertBase(BaseModel):\n    name: str\n    specialty: str\n    image_url: Optional[str] = None\n    qualifications: Optional[str] = None\n    achievements: Optional[List[str]] = None\nclass ExpertCreate(ExpertBase):\n    pass\nclass ExpertUpdate(ExpertBase):\n    pass",
+        "detail": "Backend.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "ExpertCreate",
+        "kind": 6,
+        "importPath": "Backend.schemas",
+        "description": "Backend.schemas",
+        "peekOfCode": "class ExpertCreate(ExpertBase):\n    pass\nclass ExpertUpdate(ExpertBase):\n    pass\nclass Expert(ExpertBase):\n    id: int\n    class Config:\n        orm_mode = True\nclass ChatHistoryBase(BaseModel):\n    chat_id: Optional[str]",
+        "detail": "Backend.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "ExpertUpdate",
+        "kind": 6,
+        "importPath": "Backend.schemas",
+        "description": "Backend.schemas",
+        "peekOfCode": "class ExpertUpdate(ExpertBase):\n    pass\nclass Expert(ExpertBase):\n    id: int\n    class Config:\n        orm_mode = True\nclass ChatHistoryBase(BaseModel):\n    chat_id: Optional[str]\n    sender: bool\n    message: str",
+        "detail": "Backend.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "Expert",
+        "kind": 6,
+        "importPath": "Backend.schemas",
+        "description": "Backend.schemas",
+        "peekOfCode": "class Expert(ExpertBase):\n    id: int\n    class Config:\n        orm_mode = True\nclass ChatHistoryBase(BaseModel):\n    chat_id: Optional[str]\n    sender: bool\n    message: str\n    timestamp: datetime",
+        "detail": "Backend.schemas",
+        "documentation": {}
+    },
+    {
+        "label": "ChatHistoryBase",
+        "kind": 6,
+        "importPath": "Backend.schemas",
+        "description": "Backend.schemas",
+        "peekOfCode": "class ChatHistoryBase(BaseModel):\n    chat_id: Optional[str]\n    sender: bool\n    message: str\n    timestamp: datetime",
         "detail": "Backend.schemas",
         "documentation": {}
     },

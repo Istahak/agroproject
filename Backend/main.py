@@ -9,14 +9,15 @@ import models, schemas as schemas,utils
 
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import user, auth
+from routers import user, auth, expert, chat
 
 models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 
 app.include_router(user.router)
 app.include_router(auth.router)
-
+app.include_router(expert.router)
+app.include_router(chat.router)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
