@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BsSend } from "react-icons/bs";
 
-const MessageInput = ({ onSendMessage }) => {
+const MessageInput = ({ onSendMessage, conversationId, conversationName }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e) => {
@@ -13,6 +13,7 @@ const MessageInput = ({ onSendMessage }) => {
     e.preventDefault();
     // Call the callback function from the parent component
     onSendMessage(inputValue);
+    console.log(conversationId, conversationName);
     // Clear the input field after sending the message
     setInputValue("");
   };
