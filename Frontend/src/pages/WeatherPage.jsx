@@ -15,11 +15,12 @@ function WeatherPage() {
     }
 
     return (
-        <div className="w-full h-screen text-white px-8">
+        <div className="m-0 p-0 bg-black w-full h-screen text-white px-8 border-box-container">
+            <Background></Background>
             <nav className='w-full p-3 flex justify-between items-center'>
-                <h1 className='font-bold tracking-wide text-3xl'>Weather Forecast</h1>
-                <div className='bg-white w-[15rem] overflow-hidden shadow-2xl rounded flex items-center p-2 gap-2'>
-                    <img src={Search} alt="Search" className='w-[1.5rem] h-[1.5rem]' />
+                <h1 className='font-bold tracking-wide text-3xl z-1'>Weather Forecast</h1>
+                <div className='bg-white w-[15rem] overflow-hidden shadow-2xl rounded flex items-center p-2 gap-2 z-1'>
+                    <img src={Search} alt="Search" className='w-[1.5rem] h-[1.5rem] bg-white' />
                     <input
                         onKeyUp={(e) => {
                             if (e.key === 'Enter') {
@@ -28,13 +29,12 @@ function WeatherPage() {
                         }}
                         type="text"
                         placeholder='Search City'
-                        className='focus:outline-none w-full text-[#212121] text-lg'
+                        className='bg-white focus:outline-none w-full text-[#212121] text-lg'
                         value={input}
                         onChange={(e) => setInput(e.target.value)}
                     />
                 </div>
             </nav>
-            <Background></Background>
             <main className='w-full flex flex-wrap gap-8 py-4 px-[10%] items-center justify-center'>
                 <WeatherCard
                     place={thisLocation}

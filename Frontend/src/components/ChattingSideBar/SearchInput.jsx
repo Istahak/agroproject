@@ -23,7 +23,7 @@ const SearchInput = ({ onSearch }) => {
       />
       <button
         type="button" // Set type as "button" to prevent form submission
-        className="w-200 h-10 btn-circle bg-sky-500 text-white"
+        className="w-12 h-12 btn-circle bg-sky-500 text-white pl-3"
         onClick={handleClick}
       >
         <IoSearchSharp className="w-6 h-6 outline-none" />

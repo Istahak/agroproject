@@ -1,4 +1,7 @@
 .sideBar{
+    background-color: white;
+    width: 17%;
+    height: 100%;
     position: fixed;
     display: flex;
     flex-direction: column;
@@ -6,16 +9,17 @@
     z-index: 1;
 }
 .logo{
-    width: 120px;
-    margin-left: 50px;
+    width: 50%;
+    margin-left: 4rem;
+    /* border: 5px;
+    border-color: red;
+    border-style: dashed; */
 }
 .sideButtons{
     display: flex;
+    margin-bottom: 120%;
+    padding-right: 10%;
     flex-direction: column;
-}
-.sideNavMore{
-    position: fixed;
-    bottom: 5px;
 }
 .sideButton{
     background: none;

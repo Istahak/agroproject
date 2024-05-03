@@ -7,10 +7,21 @@ const MessageContainer = () => {
   // Initialize noChatSelected as true using useState
   const { selectedConversation } = useContext(ConversationContext);
   const { id, name } = selectedConversation || {};
-  let list = getMessages();
+  const [messageList, setMessageList] = useState(getMessages());
+
+  const handleSendMessage = (newMessage) => {
+    let newObj = {
+      id: 1,
+      sender: true,
+      content: newMessage,
+      timestamp: new Date(),
+    };
+    const updatedMessages = [...messageList, newObj];
+    setMessageList(updatedMessages);
+  };
   //   console.log(id, name);
   return (
-    <div className="md:min-w-[450px] flex flex-col">
+    <div className="md:min-w-[710px] flex flex-col">
       {selectedConversation == null ? (
         <NoChatSelected />
       ) : (
@@ -21,8 +32,8 @@ const MessageContainer = () => {
             <span className="text-gray-900 font-bold">{name}</span>
           </div>
 
-          <Messages messages={list} />
-          <MessageInput />
+          <Messages messages={messageList} />
+          <MessageInput onSendMessage={handleSendMessage} />
         </>
       )}
     </div>

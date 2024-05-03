@@ -25,7 +25,6 @@ const Conversation = ({ id, name }) => {
         <div className="flex flex-col flex-1">
           <div className="flex gap-3 justify-between">
             <p className="font-bold text-gray-200">{name}</p>
-            <p className="text-gray-400">ID: {id}</p>
           </div>
         </div>
       </div>
