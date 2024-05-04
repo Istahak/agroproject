@@ -11,7 +11,8 @@ class User(BaseModel):
     email: EmailStr
     password: str
 
-class UserOut(BaseModel):
+class UserOut(User):
+    id: int
     username: str
     email: EmailStr
     class Config:
@@ -58,3 +59,56 @@ class ChatHistoryBase(BaseModel):
     sender: bool
     message: str
     timestamp: datetime
+    
+    
+
+
+
+class PostBase(BaseModel):
+    id: int
+    content: str
+    image_url: Optional[str] = None
+
+class PostCreate(PostBase):
+    pass
+
+class Post(PostBase):
+    likes_count : Optional[int]
+    author_id: int
+    timestamp: datetime
+    author : User
+
+    class Config:
+        orm_mode = True
+
+class CommentBase(BaseModel):
+    content: str
+
+class CommentCreate(CommentBase):
+    post_id: int
+
+class Comment(CommentBase):
+    id: int
+    
+    timestamp: datetime
+    author_id: int
+    author : User
+
+    class Config:
+        orm_mode = True
+
+class LikeBase(BaseModel):
+    author: str
+    Type: str
+
+class LikeCreate(LikeBase):
+    post_id: int
+
+class Like(LikeBase):
+    id: int
+    post_id: int
+    author_id: int
+
+    class Config:
+        orm_mode = True
+    

@@ -24,26 +24,17 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-<<<<<<< HEAD
-
-
-        <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-
-=======
         <Route path="/kgb" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
         <Route path="/dgs" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
         <Route path="/kj" element={<HomePage />} />
         <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
->>>>>>> af7dc6b6970bfb82b78a7b841c0017c9fe0361b2
+
         <Route path="/signup" element={<SignUpPage />} /> {/* Add SignUpPage to routes */}
         <Route path="/login" element={<LoginPage />} /> {/* Add LoginPage to routes */}
         <Route path ="/" element={<TimeLine/>}/>
         <Route path ="/jyf" element={<WeatherPage/>}/>
-<<<<<<< HEAD
-=======
         <Route path ="/" element={<GeminiPage/>}/>
         <Route path ="/jgd" element={<Chatting/>}/>
->>>>>>> af7dc6b6970bfb82b78a7b841c0017c9fe0361b2
         <Route path ="/g" element={<GeminiPage/>}/>
         <Route path ="/ch" element={<Chatting/>}/>
         <Route path="/cropinfo" element={<CropInfoPage/>}/>

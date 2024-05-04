@@ -844,7 +844,7 @@
         "kind": 5,
         "importPath": "Backend.routers.expert",
         "description": "Backend.routers.expert",
-        "peekOfCode": "router = APIRouter()\n@router.get(\"/experts\", response_model=list[schemas.ExpertBase])\ndef get_experts(db: Session = Depends(get_db)):\n    return db.query(models.Expert).all()\n@router.post(\"/experts/\", response_model=schemas.Expert)\ndef create_expert(expert: schemas.ExpertCreate, db: Session = Depends(get_db)):\n    db_expert = models.Expert(**expert.model_dump())\n    db.add(db_expert)\n    db.commit()\n    db.refresh(db_expert)",
+        "peekOfCode": "router = APIRouter()\n@router.get(\"/experts\", response_model=list[schemas.Expert])\ndef get_experts(db: Session = Depends(get_db)):\n    return db.query(models.Expert).all()\n@router.post(\"/experts/\", response_model=schemas.Expert)\ndef create_expert(expert: schemas.ExpertCreate, db: Session = Depends(get_db)):\n    db_expert = models.Expert(**expert.model_dump())\n    db.add(db_expert)\n    db.commit()\n    db.refresh(db_expert)",
         "detail": "Backend.routers.expert",
         "documentation": {}
     },

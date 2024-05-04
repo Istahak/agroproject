@@ -1,7 +1,10 @@
 
 import datetime
-from sqlalchemy import JSON, Column, Date, Integer, String,Boolean,DateTime
+from pytz import utc
+from sqlalchemy import JSON, Column, Date, ForeignKey, Integer, String,Boolean,DateTime
 from database import Base
+from datetime import datetime, timezone
+from sqlalchemy.orm import relationship
 
 class Users(Base):
     __tablename__ = "users"
@@ -28,3 +31,40 @@ class ChatHistory(Base):
     sender = Column(Boolean, nullable=False)
     message = Column(String, nullable=False)
     timestamp = Column(DateTime, nullable=False)
+    
+    
+
+class Post(Base):
+    __tablename__ = "posts"
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    content = Column(String, nullable=False)
+    image_url = Column(String, nullable=True)
+    likes_count = Column(Integer,nullable = True)
+    timestamp = Column(DateTime, default=datetime.now(timezone.utc))
+    author_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    author = relationship("Users")
+    
+ 
+   
+class Comment(Base):
+    __tablename__ = "comments"
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    post_id = Column(Integer, ForeignKey("posts.id") ,nullable=False)
+    content = Column(String, nullable=False)
+    timestamp = Column(DateTime, default=datetime.now(timezone.utc))
+    author_id = Column(Integer,ForeignKey("users.id"), nullable=False)
+    author = relationship("Users")
+    post = relationship("Post")
+    
+
+class Like(Base):
+    __tablename__ = "likes"
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    post_id = Column(Integer, ForeignKey("posts.id") ,nullable=False)
+    author = Column(String, nullable=False)
+    author_id = Column(Integer, ForeignKey("users.id") ,nullable=False)
+    Type = Column(String, nullable=False)
+    autor = relationship("Users")
+    post = relationship("Post")
+    
+        

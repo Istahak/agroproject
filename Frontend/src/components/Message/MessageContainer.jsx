@@ -1,13 +1,71 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext,useEffect } from "react";
 import MessageInput from "./MessageInput";
 import Messages from "./Messages";
 import { TiMessages } from "react-icons/ti";
 import { ConversationContext } from "../../Context/ConversationContext";
+import axios from "axios";
 const MessageContainer = () => {
   // Initialize noChatSelected as true using useState
   const { selectedConversation } = useContext(ConversationContext);
   const { id, name } = selectedConversation || {};
-  const [messageList, setMessageList] = useState(getMessages());
+  const [messageList, setMessageList] = useState([]);
+
+
+  const [currentUser, setCurrentUser] = useState(null);
+  useEffect(() => {
+    const fetchCurrentUser = async () => {
+      const authTokenString = localStorage.getItem("auth");
+  
+      if (authTokenString) {
+        try {
+          const authToken = JSON.parse(authTokenString);
+          const response = await axios.get("http://localhost:8000/users/me", {
+            headers: {
+              Authorization: `Bearer ${authToken.access_token}`,
+            },
+          });
+          setCurrentUser(response.data);
+          console.log(response.data);
+        } catch (error) {
+          console.error("Error fetching current user:", error);
+        }
+      } else {
+        console.error("Authentication token not found in localStorage");
+      }
+    };
+  
+    fetchCurrentUser();
+  }, []);
+
+  useEffect(() => {
+    const fetchMessages = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8000/chat/${currentUser.user_id}+${id}`);
+        let newList = [];
+        for (let i = 0; i < response.data.length; i++) {
+          let newObj = {
+            id: response.data[i].chat_id,
+            sender: response.data[i].sender,
+            content: response.data[i].message,
+            timestamp: response.data[i].timestamp,
+          }
+          newList.push(newObj);
+        }
+        setMessageList(newList);
+        
+      } catch (error) {
+        console.error("Error fetching messages:", error);
+      }
+    }
+  
+    if (currentUser) {
+      // Clear messageList before fetching new messages
+      setMessageList([]);
+      fetchMessages();
+    }
+  }, [currentUser, id]);
+  
+
 
   const handleSendMessage = (newMessage) => {
     let newObj = {

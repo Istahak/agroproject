@@ -23,7 +23,6 @@ def get_chat_history(chat_id: str,db: Session = Depends(get_db)):
 @router.post("/chat", response_model=schemas.ChatHistoryBase)
 def create_chat_history(chat: schemas.ChatHistoryBase, db: Session = Depends(get_db)):
     db_chat = models.ChatHistory(**chat.model_dump())
-    print(db_chat)
     db.add(db_chat)
     db.commit()
     db.refresh(db_chat)
