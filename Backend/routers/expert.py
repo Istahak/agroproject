@@ -9,7 +9,7 @@ router = APIRouter()
 
 
 
-@router.get("/experts", response_model=list[schemas.ExpertBase])
+@router.get("/experts", response_model=list[schemas.Expert])
 def get_experts(db: Session = Depends(get_db)):
     return db.query(models.Expert).all()
 

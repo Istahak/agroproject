@@ -3,13 +3,7 @@
   padding: 50px 0;
 }
 
-.slick-slider {
-  margin-top: 30px;
-}
 
-.slick-slide {
-  margin: 0 20px; /* Add space between cards */
-}
 
 .expert-card {
   background-color: #f4f4f4;
@@ -20,12 +14,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 
 .expert-card img {
+  /* image middle of card */
+  position: relative;
   width: 150px;
   height: 150px;
-  border-radius: 50%; /* Make image circular */
+  border-radius: 50%; 
   margin-bottom: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow effect for image */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }

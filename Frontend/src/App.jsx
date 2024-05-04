@@ -31,6 +31,11 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} /> {/* Add LoginPage to routes */}
         <Route path ="/tl" element={<TimeLine/>}/>
         <Route path ="/w" element={<WeatherPage/>}/>
+        <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
+        <Route path="/signup" element={<SignUpPage />} /> {/* Add SignUpPage to routes */}
+        <Route path="/login" element={<LoginPage />} /> {/* Add LoginPage to routes */}
+        <Route path ="/" element={<TimeLine/>}/>
+        <Route path ="/jyf" element={<WeatherPage/>}/>
         <Route path ="/g" element={<GeminiPage/>}/>
         <Route path ="/ch" element={<Chatting/>}/>
         <Route path ="/com" element={<CommentPage/>}/>

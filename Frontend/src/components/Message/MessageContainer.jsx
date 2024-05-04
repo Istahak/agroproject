@@ -19,7 +19,7 @@ const MessageContainer = () => {
     const updatedMessages = [...messageList, newObj];
     setMessageList(updatedMessages);
   };
-  //   console.log(id, name);
+    console.log(id, name);
   return (
     <div className="md:min-w-[710px] flex flex-col">
       {selectedConversation == null ? (
