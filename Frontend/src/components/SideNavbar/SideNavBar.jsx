@@ -1,44 +1,33 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import "./SideNavBar.css";
-import icon from "../../assets/images/logo.png";
-import HomeIcon from "@mui/icons-material/Home";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import HelpIcon from "@mui/icons-material/Help";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import { Box, Flex, Link } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
+import AgroLogo from '../../assets/images/logo.png';
+import SidebarItems from "./SidebarItems";
+import './SideNavBar.css';
 
-function SideNavBar() {
+const SideNavBar = () => {
   return (
-    <div className="sideBar">
-      <img className="logo" src={icon} alt="Not Available." />
-      <div className="sideButtons">
-        <Link to="/dgs" className="sideButton">
-          {" "}
-          {/* Use Link with "to" prop */}
-          <HomeIcon />
-          <span>Home</span>
+    <Box
+      height={"100vh"}
+      borderRight={"1px solid"}
+      borderColor={"whiteAlpha.300"}
+      py={8}
+      position={"sticky"}
+      top={0}
+      left={0}
+      px={{ base: 2, md: 4 }}
+      className="nav-bar"
+    >
+      <Flex direction={"column"} gap={10} w='full' height={"full"}>
+        <Link to={"/"} as={RouterLink} pl={2} display={{ base: "none", md: "block" }} cursor='pointer'>
+          <img src={AgroLogo} alt="NO LOGO!" className="logo" />
         </Link>
-        <button className="sideButton">
-          <AddCircleOutlineIcon />
-          <span>Create Post</span>
-        </button>
-        <button className="sideButton">
-          <NotificationsIcon />
-          <span>Notifications</span>
-        </button>
-        <button className="sideButton">
-          <AccountCircleIcon />
-          <span>Profile</span>
-        </button>
-        <button className="sideButton">
-          <HelpIcon />
-          <span>Help</span>
-        </button>
-      </div>
-    </div>
+        <Flex direction={"column"} gap={5} cursor={"pointer"}>
+          <SidebarItems />
+        </Flex>
+      </Flex>
+    </Box>
   );
-}
+};
 
 export default SideNavBar;

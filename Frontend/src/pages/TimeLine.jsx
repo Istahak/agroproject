@@ -11,9 +11,16 @@ function TimeLine() {
         <Sidenav />
       </div>
       <div className="timeLine">
-        <Feed />
-        <Feed />
-        <Feed />
+        {postData.map((post) => (
+          <Feed
+            key={post.postid} // Ensure each Feed component has a unique key
+            name={post.name}
+            time={post.time}
+            text={post.text}
+            image_url={post.image_url}
+            like_count={post.like_count}
+          />
+        ))}
       </div>
     </div>
   );
@@ -29,7 +36,7 @@ function getPosts() {
       time: "2 hours ago",
       text: "This is a sample post.",
       image_url: "https://example.com/image1.jpg",
-      line_count: 5,
+      like_count: 5,
     },
     {
       postid: 2,
@@ -37,7 +44,7 @@ function getPosts() {
       time: "1 day ago",
       text: "Another post here.",
       image_url: "https://example.com/image2.jpg",
-      line_count: 8,
+      like_count: 8,
     },
     // Add more posts as needed
   ];
