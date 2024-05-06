@@ -12,7 +12,7 @@ router = APIRouter()
 @router.post("/likes", response_model=schemas.Like)
 def like_post(like: schemas.LikeCreate, db: Session = Depends(get_db), current_user: schemas.UserOut = Depends(get_current_user)):
     # Check if the user has already liked or disliked the post
-    existing_like = db.query(models.Like).filter_by(post_id=like.post_id, author_id=current_user.id).first()
+    existing_like = db.query(models.Like).filter_by(post_id=like.post_id, author_id=current_user.user_id).first()
     
     if existing_like:
         raise HTTPException(
@@ -21,10 +21,18 @@ def like_post(like: schemas.LikeCreate, db: Session = Depends(get_db), current_u
         )
         
     # Create a new like object with the provided data
-    db_like = models.Like(**like.model_dump(), author_id=current_user.id)
+    db_like = models.Like(**like.model_dump(), author_id=current_user.user_id)
     db.add(db_like)
     db.commit()
     db.refresh(db_like)
+    
+    if like.Type == "like":
+            db.query(models.Post).filter(models.Post.id == like.post_id).update({"likes_count": models.Post.likes_count + 1})
+    elif like.Type == "dislike":
+        db.query(models.Post).filter(models.Post.id == like.post_id).update({"dislikes_count": models.Post.dislikes_count + 1})
+        
+    db.commit()
+    
     return db_like
 
 # Endpoint to count likes and dislikes for a post by post_id

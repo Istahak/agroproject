@@ -13,6 +13,7 @@ import CropInfoPage from './pages/CropInfoPage';
 import Chatting from './pages/Chatting';
 import CommentPage from './pages/CommentPage';
 import CreatePost from './components/SideNavbar/CreatePost';
+import TaskCalendarPage from './pages/TaskCalendarPage';
 
 const App = () => {
 
@@ -26,34 +27,21 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-<<<<<<< HEAD
-        <Route path="/kgb" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-        <Route path="/dgs" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-        <Route path="/kj" element={<HomePage />} />
-        <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
-
-=======
         <Route path="/as" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
         <Route path="/signup" element={<SignUpPage />} /> {/* Add SignUpPage to routes */}
         <Route path="/login" element={<LoginPage />} /> {/* Add LoginPage to routes */}
         <Route path ="/tl" element={<TimeLine/>}/>
         <Route path ="/w" element={<WeatherPage/>}/>
-        <Route path="/" element={<HomePage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>} />
->>>>>>> 07db75fe1871317fd6b6a1166daaeb112c9b07bc
         <Route path="/signup" element={<SignUpPage />} /> {/* Add SignUpPage to routes */}
         <Route path="/login" element={<LoginPage />} /> {/* Add LoginPage to routes */}
         <Route path ="/" element={<TimeLine/>}/>
         <Route path ="/jyf" element={<WeatherPage/>}/>
-<<<<<<< HEAD
-        <Route path ="/" element={<GeminiPage/>}/>
-        <Route path ="/jgd" element={<Chatting/>}/>
-=======
->>>>>>> 07db75fe1871317fd6b6a1166daaeb112c9b07bc
         <Route path ="/g" element={<GeminiPage/>}/>
         <Route path ="/ch" element={<Chatting/>}/>
         <Route path ="/com" element={<CommentPage/>}/>
         <Route path ="/" element={<CreatePost/>}/>
         <Route path="/cropinfo" element={<CropInfoPage/>}/>
+        <Route path="/t" element={<TaskCalendarPage/>}/>
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
       <FloatingChatButton onClick={toggleChat} />

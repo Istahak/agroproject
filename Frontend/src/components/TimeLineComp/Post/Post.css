@@ -17,13 +17,17 @@
 }
 
 .like-button {
+  margin-left: 1.2rem;
   cursor: pointer; /* Show pointer cursor on hover */
 }
 .postText {
   margin-top: 5px;
-  margin-left: 15px;
+  margin-left: 1.5rem;
   color: rgb(16, 37, 51);
   font-size: large;
+  overflow-wrap: break-word; /* Break words to prevent overflow */
+  word-wrap: break-word; /* Alternative property for older browsers */
+  max-width: calc(100% - 30px); /* Set maximum width to prevent overflowing */
 }
 .postImage > img {
   width: 100%;
@@ -34,5 +38,11 @@
 }
 .postButton {
   margin: 5px 8px 4px 12px;
-  /* margin-left: 3px; */
+  margin-left: 1.2rem;
+}
+.bottomText{
+  margin-top: 100px;
+  border-style: dashed;
+  border-color: black;
+  border: blue;
 }

@@ -65,7 +65,6 @@ class ChatHistoryBase(BaseModel):
 
 
 class PostBase(BaseModel):
-    id: int
     content: str
     image_url: Optional[str] = None
 
@@ -73,7 +72,9 @@ class PostCreate(PostBase):
     pass
 
 class Post(PostBase):
+    id : int
     likes_count : Optional[int]
+    dislikes_count : Optional[int]
     author_id: int
     timestamp: datetime
     author : User
@@ -98,7 +99,6 @@ class Comment(CommentBase):
         orm_mode = True
 
 class LikeBase(BaseModel):
-    author: str
     Type: str
 
 class LikeCreate(LikeBase):
@@ -108,6 +108,7 @@ class Like(LikeBase):
     id: int
     post_id: int
     author_id: int
+    author: User
 
     class Config:
         orm_mode = True

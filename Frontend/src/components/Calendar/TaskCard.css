@@ -1,0 +1,36 @@
+.task-card {
+    border: 1px solid #ced4da;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    background-color: #fff;
+  }
+  
+  .task-card .card-body {
+    padding: 1.25rem;
+  }
+  
+  .task-card .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .task-card .card-text {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .task-card .btn {
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+  }
+  
+  .task-card .btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .task-card .btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  

@@ -39,7 +39,8 @@ class Post(Base):
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     content = Column(String, nullable=False)
     image_url = Column(String, nullable=True)
-    likes_count = Column(Integer,nullable = True)
+    likes_count = Column(Integer,nullable = True,default=0)
+    dislikes_count = Column(Integer,nullable = True,default=0)
     timestamp = Column(DateTime, default=datetime.now(timezone.utc))
     author_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     author = relationship("Users")
@@ -61,10 +62,9 @@ class Like(Base):
     __tablename__ = "likes"
     id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     post_id = Column(Integer, ForeignKey("posts.id") ,nullable=False)
-    author = Column(String, nullable=False)
     author_id = Column(Integer, ForeignKey("users.id") ,nullable=False)
     Type = Column(String, nullable=False)
-    autor = relationship("Users")
+    author = relationship("Users")
     post = relationship("Post")
     
         

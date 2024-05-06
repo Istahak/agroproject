@@ -1,10 +1,41 @@
-import React, {useState} from "react";
+import React, { useState, useEffect } from "react";
 import "./TimeLine.css";
 import Sidenav from "../components/SideNavbar/SideNavBar.jsx";
 import Feed from "../components/TimeLineComp/TimeLineComp.jsx";
 
+
+import { formatDistanceToNow, parseISO } from 'date-fns';
+
+const formatTimeAgo = (timestamp) => {
+  const date = new Date(timestamp);
+  // update for Dhaka timezone
+  date.setHours(date.getHours() + 6);
+  return formatDistanceToNow(date, { addSuffix: true });
+};
+
+
+
+
 function TimeLine() {
-  const [postData, setPostData] = useState(getPosts());
+  const [postData, setPostData] = useState([]);
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+  const fetchPosts = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/posts");
+      if (!response.ok) {
+        throw new Error("Failed to fetch posts");
+      }
+      const data = await response.json();
+      console.log(data);
+      setPostData(data);
+    } catch (error) {
+      console.error("Error fetching posts:", error);
+    }
+  };
+
   return (
     <div className="TimeLine">
       <div className="navBar">
@@ -13,12 +44,14 @@ function TimeLine() {
       <div className="timeLine">
         {postData.map((post) => (
           <Feed
-            key={post.postid} // Ensure each Feed component has a unique key
-            name={post.name}
-            time={post.time}
-            text={post.text}
+            key={post.id}
+            id = {post.id}
+            name={post.author.Username}
+            time={formatTimeAgo(post.timestamp)}
+            text={post.content}
             image_url={post.image_url}
-            like_count={post.like_count}
+            like_count={post.likes_count}
+            dislike_count = {post.dislike_count}
           />
         ))}
       </div>
@@ -27,26 +60,3 @@ function TimeLine() {
 }
 
 export default TimeLine;
-
-function getPosts() {
-  let posts = [
-    {
-      postid: 1,
-      name: "John Doe",
-      time: "2 hours ago",
-      text: "This is a sample post.",
-      image_url: "https://example.com/image1.jpg",
-      like_count: 5,
-    },
-    {
-      postid: 2,
-      name: "Jane Smith",
-      time: "1 day ago",
-      text: "Another post here.",
-      image_url: "https://example.com/image2.jpg",
-      like_count: 8,
-    },
-    // Add more posts as needed
-  ];
-  return posts;
-}

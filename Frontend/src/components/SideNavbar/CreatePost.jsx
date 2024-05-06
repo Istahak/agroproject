@@ -21,6 +21,7 @@ import { BsFillImageFill } from "react-icons/bs";
 import CreatePostLogo from "@mui/icons-material/AddCircleOutline";
 import usePreviewImg from "../../Hooks/usePreviewImg";
 import useShowToast from "../../Hooks/useShowToast";
+import axios from "axios";
 
 const CreatePost = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -29,15 +30,61 @@ const CreatePost = () => {
   const imageRef = useRef(null);
   const { handleImageChange, selectedFile, setSelectedFile } = usePreviewImg();
   const showToast = useShowToast();
+
+  const handlePost = async () => {
+    try {
+      // Get the authorization token from local storage
+      const authTokenString = localStorage.getItem("auth");
+      if (!authTokenString) {
+        // If token is not available, handle the error
+        throw new Error("Authentication token not found in localStorage");
+      }
+      const authToken = JSON.parse(authTokenString);
+
+      if((caption === "" || caption === null) && selectedFile === null){
+        throw new Error("Please enter caption or select an image to post");
+      }
+
+      // Prepare the post data
+      const postData = {
+        content: caption,
+        image_url: selectedFile,
+      };
+      console.log(postData);
+
+      // Send a POST request to the backend with the post data and token
+      const response = await axios.post(
+        "http://localhost:8000/posts",
+        postData,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken.access_token}`,
+          },
+        }
+      );
+
+      // Handle the response
+      console.log("Post created successfully:", response.data);
+
+      // Close the modal after successful post creation
+      onClose();
+
+      // Optionally, show a success message
+      showToast("Post created successfully", "success");
+    } catch (error) {
+      // Handle errors
+      console.error("Error creating post:", error.message);
+      // Optionally, show an error message
+      showToast("Error creating post", "error");
+    }
+  };
+
   useEffect(() => {
     if (isOpen && textareaRef.current) {
       textareaRef.current.focus();
     }
   }, [isOpen]);
-  //   isOpen
-  const handlePost = () =>{
-    console.log(typeof selectedFile);
-  }
+
   return (
     <>
       <Tooltip
