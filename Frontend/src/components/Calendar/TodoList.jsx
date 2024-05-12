@@ -6,11 +6,29 @@ import TaskCard from "./TaskCard";
 
 const TodoList = () => {
   const todoss = [
-    { id: 1, title: "Buy groceries", completed: false, createdDate: new Date(), dueDate: null },
-    { id: 2, title: "Walk the dog", completed: true, createdDate: new Date(), dueDate: null },
-    { id: 3, title: "Do laundry", completed: false, createdDate: new Date(), dueDate: null },
+    {
+      id: 1,
+      title: "Buy groceries",
+      completed: false,
+      createdDate: new Date(),
+      dueDate: null,
+    },
+    {
+      id: 2,
+      title: "Walk the dog",
+      completed: true,
+      createdDate: new Date(),
+      dueDate: null,
+    },
+    {
+      id: 3,
+      title: "Do laundry",
+      completed: false,
+      createdDate: new Date(),
+      dueDate: null,
+    },
   ];
-  
+
   const [todos, setTodos] = useState(todoss);
   const [newTodo, setNewTodo] = useState("");
   const [dueDate, setDueDate] = useState(null);
@@ -49,17 +67,25 @@ const TodoList = () => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
   };
+  const groupedTodos = Array.from(
+    { length: Math.ceil(todos.length / 3) },
+    (_, index) => todos.slice(index * 3, index * 3 + 3)
+  );
 
   return (
-    <section className="vh-100">
-      <div className="container py-5 h-100">
+    <section className="vh-100 border">
+      <div className="container h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col">
-            <div className="card d-flex flex-column" id="list1" style={{ borderRadius: ".75rem", backgroundColor: "#eff1f2" }}>
-              <div className="card-body py-4 px-4 px-md-5">
-                <p className="h1 text-center mt-3 mb-4 pb-3 text-primary">
+            <div
+              className="card d-flex flex-column"
+              id="list1" justify-content-center 
+              style={{ borderRadius: ".75rem", backgroundColor: "#eff1f2" }}
+            >
+              <div className="card-body px-4 px-md-5">
+                <p className="h1 text-center mt-1 mb-4 pb-3 text-primary">
                   <i className="fas fa-check-square me-1"></i>
-                  <u>My Todos</u>
+                  <span>ToDo List</span>
                 </p>
 
                 <div className="pb-2">
@@ -89,14 +115,18 @@ const TodoList = () => {
                     </div>
                   </div>
                 </div>
-
-                {todos.map((todo) => (
-                  <TaskCard
-                    key={todo.id}
-                    task={todo}
-                    onMarkAsFinished={() => handleMarkAsFinished(todo.id)}
-                    onDelete={() => handleDelete(todo.id)}
-                  />
+                {groupedTodos.map((group, rowIndex) => (
+                  <div key={rowIndex} className="row mb-3">
+                    {group.map((todo) => (
+                      <div key={todo.id} className="col-sm-4">
+                        <TaskCard
+                          task={todo}
+                          onMarkAsFinished={() => handleMarkAsFinished(todo.id)}
+                          onDelete={() => handleDelete(todo.id)}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 ))}
               </div>
             </div>

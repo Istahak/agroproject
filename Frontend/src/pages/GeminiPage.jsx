@@ -7,7 +7,7 @@ import ContextProvider from "../Context/Context";
 function GeminiPage() {
   return (
     <>
-      <SideBar />
+      {/* <SideBar /> */}
       <Main></Main>
       {/* Other components */}
     </>

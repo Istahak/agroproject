@@ -1,8 +1,9 @@
-.chat-home{
-    /* background-image: url("../../assets/images/bg.jpg"); */
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../assets/images/bg.jpg");
-    background-repeat: no repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}   
+.chat-home {
+  /* background-image: url("../../assets/images/bg.jpg"); */
+  background: linear-gradient(rgba(242, 104, 233, 0.2), rgba(167, 25, 25, 0.2));
+  background-repeat: no repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+}

@@ -1,6 +1,6 @@
-import React, { useState,useEffect } from 'react';
-import Conversation from './Conversation';
-import SearchInput from './SearchInput'; // Assuming it's in the same directory
+import React, { useState, useEffect } from "react";
+import Conversation from "./Conversation";
+import SearchInput from "./SearchInput"; // Assuming it's in the same directory
 import axios from "axios";
 const Conversations = () => {
   const [experts, setExperts] = useState([]);
@@ -33,10 +33,9 @@ const Conversations = () => {
         console.error("Error fetching experts:", error);
       }
     };
-  
+
     fetchExperts();
   }, []);
-  
 
   return (
     <div className="py-2 flex flex-col overflow-auto">
@@ -51,9 +50,6 @@ const Conversations = () => {
 
 // Function to get the list of experts
 function getExperts() {
-
-
-
   let list = [];
   for (let i = 1; i <= 5; i++) {
     let expert = {

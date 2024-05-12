@@ -1,4 +1,4 @@
-import { useState , useEffect} from "react";
+import { useState, useEffect } from "react";
 import { BsSend } from "react-icons/bs";
 
 import axios from "axios";
@@ -9,7 +9,7 @@ const MessageInput = ({ onSendMessage, conversationId, conversationName }) => {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       const authTokenString = localStorage.getItem("auth");
-  
+
       if (authTokenString) {
         try {
           const authToken = JSON.parse(authTokenString);
@@ -27,37 +27,34 @@ const MessageInput = ({ onSendMessage, conversationId, conversationName }) => {
         console.error("Authentication token not found in localStorage");
       }
     };
-  
+
     fetchCurrentUser();
   }, []);
-  
 
   const sendMessage = async (message) => {
     try {
-      const response = await axios.post('http://localhost:8000/chat', {
+      const response = await axios.post("http://localhost:8000/chat", {
         chat_id: `${currentUser.user_id}+${conversationId}`,
         sender: true,
         message: message,
         timestamp: new Date().toISOString(), // Assuming you want to use the current timestamp
       });
 
-      const response1 = await axios.post('http://localhost:8000/chat', {
+      const response1 = await axios.post("http://localhost:8000/chat", {
         chat_id: `${conversationId}+${currentUser.user_id}`,
         sender: false,
         message: message,
         timestamp: new Date().toISOString(), // Assuming you want to use the current timestamp
       });
 
-      console.log('Message sent successfully:', response.data);
-      console.log('Message sent successfully:', response1.data);
+      console.log("Message sent successfully:", response.data);
+      console.log("Message sent successfully:", response1.data);
       // Optionally, you can perform any other actions after sending the message
     } catch (error) {
-      console.error('Error sending message:', error);
+      console.error("Error sending message:", error);
       // Handle errors appropriately
     }
   };
-  
-
 
   const handleChange = (e) => {
     setInputValue(e.target.value);
