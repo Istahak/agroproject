@@ -9,7 +9,7 @@ import models, schemas as schemas,utils
 
 from fastapi.middleware.cors import CORSMiddleware
 
-from routers import user, auth, expert, chat, post, comment,likes
+from routers import user, auth, expert, chat, post, comment,likes,task,cropinfo
 
 
 
@@ -23,6 +23,9 @@ app.include_router(chat.router)
 app.include_router(post.router)
 app.include_router(comment.router)
 app.include_router(likes.router)
+app.include_router(task.router)
+app.include_router(cropinfo.router)
+
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
