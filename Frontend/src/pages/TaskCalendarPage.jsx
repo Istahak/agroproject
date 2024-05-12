@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "../assets/Style/TaskCalendar.css";
 import TodoList from "../components/Calendar/TodoList";
-import Button from 'react-bootstrap/Button';
+import Button from "react-bootstrap/Button";
 const localizer = momentLocalizer(moment);
+import axios from "axios";
 
 const TaskCalendarPage = () => {
   const [events, setEvents] = useState([]);
@@ -15,36 +16,47 @@ const TaskCalendarPage = () => {
     setShowTodoList((prevShowTodoList) => !prevShowTodoList);
   };
 
-  // useEffect(() => {
-  //   fetchTasks();
-  // }, []);
+  useEffect(() => {
+    fetchTasks();
+  }, [showTodoList]);
 
+  const fetchTasks = async () => {
+    const authTokenString = localStorage.getItem("auth");
 
-  // const fetchTasks = async () => {
-  //   try {
-  //     // Make a GET request to fetch tasks from backend
-  //     const response = await axios.get("your-backend-api-url/tasks");
-  //     const tasks = response.data;
+    if (authTokenString) {
+      try {
+        const authToken = JSON.parse(authTokenString);
 
-  //     // Convert fetched tasks into events for the calendar
-  //     const formattedEvents = tasks.map((task) => ({
-  //       id: task.id,
-  //       title: task.title,
-  //       start: new Date(task.dueDate), // Assuming dueDate is a string in ISO format, adjust date parsing accordingly
-  //       end: new Date(task.dueDate), // Assuming task ends on the same day it's due, adjust if needed
-  //     }));
+        // Make a GET request to fetch the current user's tasks
+        const response = await axios.get("http://localhost:8000/tasks", {
+          headers: {
+            Authorization: `Bearer ${authToken.access_token}`,
+          },
+        });
 
-  //     // Update state with the formatted events
-  //     setEvents(formattedEvents);
-  //   } catch (error) {
-  //     console.error("Error fetching tasks:", error);
-  //   }
-  // };
+        const tasks = response.data;
+        console.log("Fetched tasks:", tasks);
+
+        // Convert fetched tasks into events for the calendar
+        const formattedEvents = tasks.map((task) => ({
+          id: task.id,
+          title: task.contain,
+          start: new Date(task.created_at), // Assuming dueDate is a string in ISO format, adjust date parsing accordingly
+          end: new Date(task.Due_at), // Assuming task ends on the same day it's due, adjust if needed
+        }));
+
+        // Update state with the formatted events
+        setEvents(formattedEvents);
+      } catch (error) {
+        console.error("Error fetching tasks:", error);
+      }
+    }
+  };
 
   return (
     <div className="task-calendar-container">
       <div className="toggle-button-container">
-        <Button variant="success"  onClick={toggleView}>
+        <Button variant="success" onClick={toggleView}>
           {showTodoList ? "View Calendar" : "View Todo List"}
         </Button>
       </div>

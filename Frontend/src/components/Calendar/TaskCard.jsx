@@ -14,9 +14,9 @@ const TaskCard = ({ task, onMarkAsFinished, onDelete }) => {
         <h5 className="card-title">{title}</h5>
         <p className="card-text">Created: {formattedCreatedDate}</p>
         <p className="card-text">Due: {formattedDueDate}</p>
-        <p className="card-text">Status: {completed ? "Completed" : "Incomplete"}</p>
+        <p className="card-text">Status: {completed == "Completed" ? "Completed" : "Pending"}</p>
         <button className="btn btn-success" onClick={onMarkAsFinished}>
-          {completed ? "Mark as Incomplete" : "Mark as Finished"}
+          {completed == "Completed" ? "Mark as Incomplete" : "Mark as Finished"}
         </button>
         <button className="btn btn-danger" onClick={onDelete}>
           Delete

@@ -1,6 +1,6 @@
 // App.js
 
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import CropCard from "../components/CropCard/CropCard";
 import Header from '../components/Header/Header'
 import Navbar from '../components/Navbar/Navbar'
@@ -9,121 +9,33 @@ import Footer from '../components/Footer/Footer'
 
 import "../assets/Style/CropInfoPage.css";
 
-const cropsData = [
-  {
-    name: "Corn",
-    cultivation: "Deep plowing, seedbed preparation, planting, etc.",
-    pestControl: "Biological control, chemical control, cultural control, etc.",
-    soilHealth: "Crop rotation, cover crops, soil testing, etc.",
-  },
-  {
-    name: "Wheat1",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat2",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat3",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat4",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat5",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat6",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat7",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat8",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat9",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat10",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat12",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat13",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat14",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat15",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat16",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
-  {
-    name: "Wheat16",
-    cultivation: "Seedbed preparation, sowing, fertilizer application, etc.",
-    pestControl: "Integrated pest management, pesticide application, etc.",
-    soilHealth: "Conservation tillage, organic matter addition, etc.",
-  },
- 
-  // Add more crop data as needed
-];
+import axios from "axios";
+import CropDetailsPage from "./CropDetailsPage";
 
 const itemsPerPage = 9;
 
 const CropInfoPage = () => {
 
+  const [cropsData, setCropsData] = useState([]);
+
   const [currentPage, setCurrentPage] = useState(1);
-  const [selectedCrop, setSelectedCrop] = useState(null);
+  
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8000/crop-info");
+        setCropsData(response.data);
+      } catch (error) {
+        console.error("Error fetching crop information:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
 
   // Calculate the total number of pages
+
   const totalPages = Math.ceil(cropsData.length / itemsPerPage);
 
   // Calculate the index of the first and last item to display on the current page
@@ -133,10 +45,7 @@ const CropInfoPage = () => {
   // Slice the cropsData array to get the crops for the current page
   const currentCrops = cropsData.slice(indexOfFirstCrop, indexOfLastCrop);
 
-  const handleCropClick = (crop) => {
-    setSelectedCrop(crop);
-  };
-
+  
 
   const nextPage = () => {
     // Increment the current page number if it's not the last page
@@ -156,26 +65,19 @@ const CropInfoPage = () => {
   return (
     <div>
 
-      <Header/>
-      <Navbar/>
+      {/* <Header/> */}
+      {/* <Navbar/> */}
       <CropInfoHero/>
 
       {/* <h1>Crop Management System</h1> */}
 
       <div className="card-view">
-        {currentCrops.map((crop) => (
+        {cropsData.map((crop) => (
           <CropCard className="crop-card"
-            key={crop.name}
+            key={crop.id}
             crop={crop}
-            onClick={() => handleCropClick(crop)}
           />
         ))}
-        {selectedCrop && (
-          <CropDetails
-            crop={selectedCrop}
-            onClose={() => setSelectedCrop(null)}
-          />
-        )}
       </div>
 
       <div className="pagination">

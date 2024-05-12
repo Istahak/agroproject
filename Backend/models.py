@@ -67,4 +67,40 @@ class Like(Base):
     author = relationship("Users")
     post = relationship("Post")
     
-        
+
+class Task(Base):
+    __tablename__ = "task_history"
+    id = Column(Integer, primary_key=True, index=True, autoincrement=True)
+    contain = Column(String, nullable=False)
+    created_at = Column(DateTime, default=datetime.now(timezone.utc))
+    Due_at = Column(DateTime, nullable=True,default=None)
+    status = Column(String, nullable=False,default="Pending")
+    author_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    author = relationship("Users")        
+
+
+class CropInfo(Base):
+    __tablename__ = 'crop_info'
+
+    id = Column(Integer, primary_key=True, index=True)
+    name = Column(String, index=True, nullable=False)
+    variety = Column(String,default=None)
+    land_and_soil = Column(String,default=None)
+    seed_rate = Column(String,default=None)
+    seed_cleaning = Column(String,default=None)
+    seed_treatment_and_soaking = Column(String,default=None)
+    seedbed_preparation_and_care = Column(String,default=None)
+    sowing_seeds_in_seedbed = Column(String,default=None)
+    seedling_age = Column(String,default=None)
+    seedling_number = Column(String,default=None)
+    spacing = Column(String,default=None)    
+    land_preparation_and_transplanting = Column(String,default=None)
+    fertilizer_amount = Column(String,default=None)
+    use_of_urea_super_granules = Column(String,default=None)
+    irrigation = Column(String,default=None)
+    weed_control = Column(String,default=None)
+    insect_and_disease_control = Column(String,default=None)
+    harvesting_time = Column(String,default=None)
+    post_harvest_and_storage = Column(String,default=None)
+    image_url = Column(String,default=None)  # Add image URL column
+    info_source = Column(String,default=None)  # Add information source column    
