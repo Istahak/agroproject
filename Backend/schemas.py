@@ -89,7 +89,7 @@ class CommentBase(BaseModel):
 class CommentCreate(CommentBase):
     post_id: int
 
-class Comment(CommentBase):
+class Comment(CommentCreate):
     id: int
     
     timestamp: datetime

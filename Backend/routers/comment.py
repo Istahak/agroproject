@@ -9,7 +9,7 @@ router = APIRouter()
 
 @router.post("/comments", response_model=schemas.Comment)
 def create_comment(comment: schemas.CommentCreate, db: Session = Depends(get_db), current_user: schemas.UserOut = Depends(get_current_user)):
-    db_comment = models.Comment(**comment.model_dump(), author_id=current_user.id)
+    db_comment = models.Comment(**comment.model_dump(), author_id=current_user.user_id)
     db.add(db_comment)
     db.commit()
     db.refresh(db_comment)

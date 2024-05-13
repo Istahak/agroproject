@@ -55,7 +55,6 @@ class Comment(Base):
     timestamp = Column(DateTime, default=datetime.now(timezone.utc))
     author_id = Column(Integer,ForeignKey("users.id"), nullable=False)
     author = relationship("Users")
-    post = relationship("Post")
     
 
 class Like(Base):

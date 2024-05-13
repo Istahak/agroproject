@@ -8,6 +8,7 @@ import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import CommentIcon from "@mui/icons-material/Comment";
 import axios from "axios";
+import { Link } from "react-router-dom";
 function Post({ id, name, time, text, image_url, like_count, dislike_count }) {
   const [liked, setLiked] = useState(false);
   const [disLiked, setDisLiked] = useState(false);
@@ -104,7 +105,9 @@ function Post({ id, name, time, text, image_url, like_count, dislike_count }) {
           <div className="like-button" onClick={handleDisLikeClick}>
             {disLiked ? <ThumbDownAltIcon /> : <ThumbDownOffAltIcon />}
           </div>
+         <Link to={`/comment/${id}`}>
           <CommentIcon className="postButton" />
+          </Link>
         </div>
         <span className="">Liked by {(likeCount==null) ? 0 : likeCount} people</span>
         <br />

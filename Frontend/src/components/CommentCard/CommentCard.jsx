@@ -1,23 +1,19 @@
 import React from "react";
 import { MDBCardBody, MDBTypography } from "mdb-react-ui-kit";
-function CommentCard() {
+
+function CommentCard({ username, timestamp, content }) {
   return (
     <div>
       <MDBCardBody className="p-4">
         <div className="d-flex flex-start">
           <div>
             <MDBTypography tag="h6" className="fw-bold mb-1">
-              Maggie Marsh
+              {username}
             </MDBTypography>
             <div className="d-flex align-items-center mb-3">
-              <p className="mb-0">March 07, 2021</p>
+              <p className="mb-0">{timestamp}</p>
             </div>
-            <p className="mb-0">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it.
-            </p>
+            <p className="mb-0">{content}</p>
           </div>
         </div>
       </MDBCardBody>

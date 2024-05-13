@@ -93,7 +93,7 @@ const App = () => {
           <Route path="/weather" element={<WeatherPage />} />
           <Route path="/gemini" element={<GeminiPage />} />
           <Route path="/expert-chat" element={<Chatting />} />
-          <Route path="/comment" element={<CommentPage />} />
+          <Route path="/comment/:postId" element={<CommentPage />} />
           {/* <Route path ="/" element={<CreatePost/>}/> */}
           <Route path="/cropinfo" element={<CropInfoPage />} />
           <Route path="/calender" element={<TaskCalendarPage />} />

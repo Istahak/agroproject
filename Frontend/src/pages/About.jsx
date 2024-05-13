@@ -1,13 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 import HeroSection from "../components/HeroSection/HeroSection";
-import { useGlobalContext } from "../Context/context";
+// import { useGlobalContext } from "../Context/context";
 import Navbar from "../components/Navbar/Navbar";
 import Footer from "../components/Footer/Footer";
 
 const About = () => {
   // const { udpateAboutPage } = useGlobalContext();
 
+  
   // useEffect(() => udpateAboutPage(), []);
 
   return (

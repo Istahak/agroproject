@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useGlobalContext } from "../../Context/context";
+// import { useGlobalContext } from "../../Context/context";
 import image from "../../assets/images/about.jpg";
 
 const HeroSection = () => {
