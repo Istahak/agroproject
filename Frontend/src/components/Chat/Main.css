@@ -1,8 +1,10 @@
 .main{
     flex: 1;
-    min-height: 100vh;
+    min-height: 95vh;
     padding-bottom: 15vh;
     position: relative;
+    background: linear-gradient(rgba(114, 189, 251, 0.2), rgba(154, 245, 126, 0.2));
+
 }
 .main .nav{
     display: flex;

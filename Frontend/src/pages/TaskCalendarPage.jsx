@@ -4,17 +4,14 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "../assets/Style/TaskCalendar.css";
 import TodoList from "../components/Calendar/TodoList";
-<<<<<<< HEAD
 import IconButton from "@mui/material/IconButton";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 import Typography from "@mui/material/Typography";
-=======
 import Button from "react-bootstrap/Button";
->>>>>>> 934d87329e7fefcf2ced7e947782dd5d2cc5cb5e
 const localizer = momentLocalizer(moment);
 import axios from "axios";
-
+import Navbar from "../components/Navbar/Navbar";
 const TaskCalendarPage = () => {
   const [events, setEvents] = useState([]);
   const [showTodoList, setShowTodoList] = useState(true);
@@ -23,8 +20,6 @@ const TaskCalendarPage = () => {
     setShowTodoList((prevShowTodoList) => !prevShowTodoList);
   };
 
-<<<<<<< HEAD
-=======
   useEffect(() => {
     fetchTasks();
   }, [showTodoList]);
@@ -62,11 +57,10 @@ const TaskCalendarPage = () => {
     }
   };
 
->>>>>>> 934d87329e7fefcf2ced7e947782dd5d2cc5cb5e
   return (
     <div className="task-calendar-container vh-80">
+      <Navbar></Navbar>
       <div className="toggle-button-container">
-<<<<<<< HEAD
         <IconButton
           color="black"
           onClick={toggleView}
@@ -74,25 +68,27 @@ const TaskCalendarPage = () => {
         >
           {showTodoList ? (
             <>
-              <CalendarTodayIcon sx={{ fontSize: 40 }} /> {/* Increase the icon size */}
+              <CalendarTodayIcon sx={{ fontSize: 40 }} />{" "}
+              {/* Increase the icon size */}
               <Typography variant="h6" sx={{ ml: 1, fontSize: 18 }}>
                 Calendar
-              </Typography> {/* Increase the typography size */}
+              </Typography>{" "}
+              {/* Increase the typography size */}
             </>
           ) : (
             <>
-              <FormatListBulletedIcon sx={{ fontSize: 40 }} /> {/* Increase the icon size */}
+              <FormatListBulletedIcon sx={{ fontSize: 40 }} />{" "}
+              {/* Increase the icon size */}
               <Typography variant="h6" sx={{ ml: 1, fontSize: 18 }}>
                 Todo List
-              </Typography> {/* Increase the typography size */}
+              </Typography>{" "}
+              {/* Increase the typography size */}
             </>
           )}
         </IconButton>
-=======
-        <Button variant="success" onClick={toggleView}>
+        {/* <Button variant="success" onClick={toggleView}>
           {showTodoList ? "View Calendar" : "View Todo List"}
-        </Button>
->>>>>>> 934d87329e7fefcf2ced7e947782dd5d2cc5cb5e
+        </Button> */}
       </div>
 
       {showTodoList ? (

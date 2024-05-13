@@ -20,7 +20,7 @@ def create_crop_info(crop_info: schemas.CropInfo, db: Session = Depends(get_db))
 # Get all crop information
 @router.get("/crop-info/", response_model=List[schemas.CropInfo])
 def get_all_crop_info(skip: int = 0, limit: int = 10, db: Session = Depends(get_db)):
-    return db.query(models.CropInfo).offset(skip).limit(limit).all()
+    return db.query(models.CropInfo).all()
 
 # Get crop information by ID
 @router.get("/crop-info/{crop_info_id}", response_model=schemas.CropInfo)

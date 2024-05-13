@@ -27,9 +27,6 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <a href="#about">About Us</a>
-        </li>
-        <li>
           <Link to={isLoggedIn ? "/calender" : "/login"}>Calender</Link>
         </li>
         <li
@@ -48,7 +45,9 @@ const Navbar = () => {
                   <Link to="/cropinfo">Crop Information</Link>
                 </li>
                 <li>
-                  <Link to="/expert-chat">Expert Advice</Link>
+                  <Link to={isLoggedIn ? "/expert-chat" : "/login"}>
+                    Expert Guidance
+                  </Link>
                 </li>
                 <li>
                   <Link to="/gemini">AI Help</Link>
@@ -58,7 +57,10 @@ const Navbar = () => {
           )}
         </li>
         <li>
-          <a href="#forums">Community Forums</a>
+          <Link to={isLoggedIn ? "/timeline" : "/login"}>Community Forum</Link>
+        </li>
+        <li>
+          <Link to="/about">About Us</Link>
         </li>
       </ul>
     </nav>

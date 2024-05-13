@@ -2,7 +2,7 @@
     border: 1px solid #ced4da;
     border-radius: 0.75rem;
     margin-bottom: 1rem;
-    background-color: #fff;
+    background: linear-gradient(rgba(114, 189, 251, 0.2), rgba(154, 245, 126, 0.2));
   }
   
   .task-card .card-body {
@@ -25,12 +25,12 @@
   }
   
   .task-card .btn-success {
-    background-color: #28a745;
-    border-color: #28a745;
+    background-color: #76d38c;
+    border-color: #4bf372;
   }
   
   .task-card .btn-danger {
-    background-color: #dc3545;
-    border-color: #dc3545;
+    background-color: #f2707d;
+    border-color: #de5b68;
   }
   

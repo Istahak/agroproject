@@ -17,8 +17,8 @@
 
 .loginbutton {
   margin-right: 20px;
-  background-color: #4caf50;
-  color: white;
+  background-color: #7af57e;
+  color: rgb(244, 244, 244);
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
@@ -35,13 +35,13 @@
 }
 
 .loginbutton:hover {
-  background-color: #268fd4;
+  background-color: #65faa6;
   animation: glow 1s infinite;
 }
 
 .logoutbutton {
   margin-right: 20px;
-  background-color: #f44336;
+  background-color: #ff867d;
   color: white;
   border: none;
   border-radius: 5px;
@@ -55,13 +55,13 @@
 }
 
 .logoutbutton:hover {
-  background-color: #268fd4;
+  background-color: #f88f63;
   animation: glow 1s infinite alternate;
 }
 
 .signupbutton {
   margin-right: 20px;
-  background-color: #268fd4;
+  background-color: #6ec0f7;
   color: white;
   border: none;
   border-radius: 5px;
@@ -76,14 +76,15 @@
 }
 
 .signupbutton:hover {
-  background-color: #4caf50;
+  background-color: #5f80fb;
   animation: glow 1s infinite alternate;
 }
 
 .userinfo {
+  margin-top: 20px;
   margin-right: 20px;
   font-size: 16px;
-  color: #4caf50;
+  color: #62e466;
   font-weight: bold;
   text-align: center;
   text-decoration: none;

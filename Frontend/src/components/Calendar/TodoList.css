@@ -1,0 +1,5 @@
+/* TodoList.css */
+
+.task-card-container {
+    background: linear-gradient(rgba(114, 189, 251, 0.2), rgba(154, 245, 126, 0.2));
+}
