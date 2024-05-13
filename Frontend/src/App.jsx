@@ -15,6 +15,7 @@ import CommentPage from "./pages/CommentPage";
 import CreatePost from "./components/SideNavbar/CreatePost";
 import TaskCalendarPage from "./pages/TaskCalendarPage";
 import CropDetailsPage from "./pages/CropDetailsPage";
+import ForgotPassword from "./pages/ForgotPassword";
 
 const App = () => {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -52,6 +53,7 @@ const App = () => {
         <Route path="/cropinfo" element={<CropInfoPage />} />
         <Route path="/t" element={<TaskCalendarPage />} />
         <Route path="/crop/:cropId" element={<CropDetailsPage />} />
+        <Route path="/forgotpassword" element={<ForgotPassword />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
       <FloatingChatButton onClick={toggleChat} />

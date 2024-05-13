@@ -118,7 +118,7 @@ const LoginPage = ({isLoggedIn,setIsLoggedIn}) => {
                     Remember for 30 days
                   </label>
                 </div>
-                <a href="#" className="forgot-pass-link">
+                <a href="/forgotpassword" className="forgot-pass-link">
                   Forgot password?
                 </a>
               </div>
