@@ -3,6 +3,7 @@ import moment from "moment";
 import DatePicker from "react-datepicker"; // Import date picker library
 import "react-datepicker/dist/react-datepicker.css"; // Import date picker styles
 import TaskCard from "./TaskCard";
+import "./TodoList.css";
 import axios from "axios";
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
@@ -142,6 +143,13 @@ const TodoList = () => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
   };
+  const groupTasks = () => {
+    const grouped = [];
+    for (let i = 0; i < todos.length; i += 3) {
+      grouped.push(todos.slice(i, i + 3));
+    }
+    return grouped;
+  };
 
   return (
     <section className="vh-100">
@@ -156,7 +164,7 @@ const TodoList = () => {
               <div className="card-body py-4 px-4 px-md-5">
                 <p className="h1 text-center mt-3 mb-4 pb-3 text-primary">
                   <i className="fas fa-check-square me-1"></i>
-                  <u>My Todos</u>
+                  Tasks
                 </p>
 
                 <div className="pb-2">
@@ -187,15 +195,20 @@ const TodoList = () => {
                   </div>
                 </div>
 
-                {todos.map((todo) => (
-                  <TaskCard
-                    key={todo.id}
-                    task={todo}
-                    onMarkAsFinished={() =>
-                      handleMarkAsFinished(todo.id, todo.completed)
-                    }
-                    onDelete={() => handleDelete(todo.id)}
-                  />
+                {groupTasks().map((taskGroup, index) => (
+                  <div className="row" key={index}>
+                    {taskGroup.map((task) => (
+                      <div className="col-md-4 mb-3" key={task.id}>
+                        <TaskCard
+                          task={task}
+                          onMarkAsFinished={() =>
+                            handleMarkAsFinished(task.id, task.completed)
+                          }
+                          onDelete={() => handleDelete(task.id)}
+                        />
+                      </div>
+                    ))}
+                  </div>
                 ))}
               </div>
             </div>

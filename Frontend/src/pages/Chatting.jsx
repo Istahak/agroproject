@@ -1,12 +1,17 @@
 import React from "react";
 import ChatHome from "../components/ChatHome/ChatHome";
+import Navbar from "../components/Navbar/Navbar";
+import "./Chatting.css";
 function Chatting() {
   return (
-    <div className="chat-home">
-      <div className="p-4 h-screen flex items-center justify-center">
-        <ChatHome></ChatHome>
+    <>
+      <Navbar></Navbar>
+      <div className="chat-home">
+        <div className="p-4 flex items-center justify-center">
+          <ChatHome></ChatHome>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

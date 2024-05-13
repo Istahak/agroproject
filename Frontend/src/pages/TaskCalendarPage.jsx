@@ -4,10 +4,14 @@ import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import "../assets/Style/TaskCalendar.css";
 import TodoList from "../components/Calendar/TodoList";
+import IconButton from "@mui/material/IconButton";
+import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
+import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
+import Typography from "@mui/material/Typography";
 import Button from "react-bootstrap/Button";
 const localizer = momentLocalizer(moment);
 import axios from "axios";
-
+import Navbar from "../components/Navbar/Navbar";
 const TaskCalendarPage = () => {
   const [events, setEvents] = useState([]);
   const [showTodoList, setShowTodoList] = useState(true);
@@ -54,15 +58,41 @@ const TaskCalendarPage = () => {
   };
 
   return (
-    <div className="task-calendar-container">
+    <div className="task-calendar-container vh-80">
+      <Navbar></Navbar>
       <div className="toggle-button-container">
-        <Button variant="success" onClick={toggleView}>
+        <IconButton
+          color="black"
+          onClick={toggleView}
+          className="centered-icon-button"
+        >
+          {showTodoList ? (
+            <>
+              <CalendarTodayIcon sx={{ fontSize: 40 }} />{" "}
+              {/* Increase the icon size */}
+              <Typography variant="h6" sx={{ ml: 1, fontSize: 18 }}>
+                Calendar
+              </Typography>{" "}
+              {/* Increase the typography size */}
+            </>
+          ) : (
+            <>
+              <FormatListBulletedIcon sx={{ fontSize: 40 }} />{" "}
+              {/* Increase the icon size */}
+              <Typography variant="h6" sx={{ ml: 1, fontSize: 18 }}>
+                Todo List
+              </Typography>{" "}
+              {/* Increase the typography size */}
+            </>
+          )}
+        </IconButton>
+        {/* <Button variant="success" onClick={toggleView}>
           {showTodoList ? "View Calendar" : "View Todo List"}
-        </Button>
+        </Button> */}
       </div>
 
       {showTodoList ? (
-        <div className="todo-list">
+        <div className="todo-list vh-100">
           <TodoList />
         </div>
       ) : (
@@ -75,7 +105,7 @@ const TaskCalendarPage = () => {
             events={events}
             startAccessor="start"
             endAccessor="end"
-            style={{ height: 500 }}
+            // style={{ height: 500 }}
           />
         </div>
       )}

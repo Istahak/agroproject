@@ -38,7 +38,9 @@ const ExpertInfo = () => {
         <Slider {...settings}>
           {experts.map((expert, index) => (
             <div key={index} className="expert-card">
-              <img src={expert.image_url} alt={expert.name} />
+              <div className="image">
+                <img src={expert.image_url} alt={expert.name} />
+              </div>
               <h3>{expert.name}</h3>
               <p>{expert.qualifications}</p>
               <p>{expert.achievements}</p>

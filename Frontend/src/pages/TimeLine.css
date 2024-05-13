@@ -1,29 +1,29 @@
 .TimeLine {
-    background-image: url('../assets/images/bg.jpg');
-    background-attachment: fixed; /* Keeps the background fixed */
-    background-size: cover; /* Ensures the background covers the entire element */
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
-    width: 100%; /* 'full' isn't a valid width value */
-    overflow-y: auto; /* Enables vertical scrolling for content */
+  background: linear-gradient(rgba(114, 189, 251, 0.2), rgba(154, 245, 126, 0.2));
+  background-attachment: fixed; /* Keeps the background fixed */
+  background-size: cover; /* Ensures the background covers the entire element */
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  width: 100%; /* 'full' isn't a valid width value */
+  overflow-y: auto; /* Enables vertical scrolling for content */
 }
 .navBar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 20%;
-    background-color: #fff;
-    border-right: 1px solid #ccc;
-    overflow-y: auto;
-  }
-  
-.timeLine{
-    position: absolute;
-    top: 0;
-    left: 20%; /* Set the left position to the width of the .navBar */
-    width: 80%; /* Adjust the width to fill the remaining space */
-    height: 100vh; /* Adjust height as needed */
-    overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 15%;
+  background-color: #fff;
+  border-right: 1px solid #ccc;
+  overflow-y: auto;
+}
+
+.timeLine {
+  position: absolute;
+  top: 0;
+  left: 20%; /* Set the left position to the width of the .navBar */
+  width: 80%; /* Adjust the width to fill the remaining space */
+  height: 100vh; /* Adjust height as needed */
+  overflow-y: auto;
 }

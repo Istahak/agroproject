@@ -1,91 +1,110 @@
-.header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 0;
-    border-bottom: 1px solid #e0e0e0;
-    position: top;
-    width: 100%;
-    height: 100px;
-    background-color: white;
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #e0e0e0;
+  position: top;
+  width: 100%;
+  height: 100px;
+  background-color: white;
 }
-.logoimage{
-    width: 100px;
-    height: 75px;
-    margin-left: 20px;
-}
-
-.loginbutton{
-    margin-right: 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
+.logoimage {
+  width: 100px;
+  height: 75px;
+  margin-left: 20px;
 }
 
-.loginbutton:hover{
-    background-color: #268fd4;
+.loginbutton {
+  margin-right: 20px;
+  background-color: #7af57e;
+  color: rgb(244, 244, 244);
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-.logoutbutton{
-    margin-right: 20px;
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
+.loginbutton:hover {
+  background-color: #65faa6;
+  animation: glow 1s infinite;
 }
 
-.logoutbutton:hover{
-    background-color: #268fd4;
+.logoutbutton {
+  margin-right: 20px;
+  background-color: #ff867d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-.signupbutton{
-    margin-right: 20px;
-    background-color: #268fd4;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    font-weight: bold;
+.logoutbutton:hover {
+  background-color: #f88f63;
+  animation: glow 1s infinite alternate;
 }
 
-.signupbutton:hover{
-    background-color: #26d4d1;
+.signupbutton {
+  margin-right: 20px;
+  background-color: #6ec0f7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: box-shadow 0.3s ease-in-out;
 }
 
-.userinfo{
-    margin-right: 20px;
-    font-size: 16px;
-    color: #4CAF50;
-    font-weight: bold;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    padding: 10px;
+.signupbutton:hover {
+  background-color: #5f80fb;
+  animation: glow 1s infinite alternate;
 }
-.user{
-    display: flex;
-    align-items: center;
+
+.userinfo {
+  margin-top: 20px;
+  margin-right: 20px;
+  font-size: 16px;
+  color: #62e466;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  padding: 10px;
+}
+.user {
+  display: flex;
+  align-items: center;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px #78e0e0; /* Initial box-shadow color */
+  }
+  50% {
+    box-shadow: 0 0 20px #78e0e0; /* Medium glow effect */
+  }
+  100% {
+    box-shadow: 0 0 10px #78e0e0; /* Return to initial glow */
+  }
 }

@@ -1,8 +1,10 @@
-.chat-home{
-    /* background-image: url("../../assets/images/bg.jpg"); */
-    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url("../../assets/images/bg.jpg");
-    background-repeat: no repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}   
+.chat-home {
+  /* background-image: url("../../assets/images/bg.jpg"); */
+  background: linear-gradient(rgba(114, 189, 251, 0.2), rgba(154, 245, 126, 0.2));
+  background-repeat: no repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 93vh;
+  overflow: hidden;
+}
