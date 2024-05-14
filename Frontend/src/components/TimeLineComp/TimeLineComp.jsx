@@ -2,9 +2,9 @@ import React from "react";
 import "./TimeLineComp.css";
 import Post from "./Post/Post.jsx";
 
-function TimeLineComp({ id, name, time, text, image_url, like_count , dislike_count}) {
+function TimeLineComp({ id, name, time, text, image_url, like_count , dislike_count,author_id}) {
   // const { postData } = props; // Assuming postData is an array of post objects
-
+  // console.log("authorid",author_id)
   return (
     <div className="timeLinePosts">
       <Post
@@ -16,6 +16,7 @@ function TimeLineComp({ id, name, time, text, image_url, like_count , dislike_co
         image_url={image_url}
         like_count={like_count}
         dislike_count={dislike_count}
+        author_id={author_id}
       />
     </div>
   );

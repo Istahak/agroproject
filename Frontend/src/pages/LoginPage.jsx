@@ -9,7 +9,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-const LoginPage = ({isLoggedIn,setIsLoggedIn}) => {
+const LoginPage = ({ isLoggedIn, setIsLoggedIn }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [rememberMe, setRememberMe] = useState(false);
   const [invalidCredentials, setInvalidCredentials] = useState(false);
@@ -43,15 +43,36 @@ const LoginPage = ({isLoggedIn,setIsLoggedIn}) => {
         if (authTokenString) {
           try {
             const authToken = JSON.parse(authTokenString);
-            const response1 = await axios.get("http://localhost:8000/users/me", {
-              headers: {
-                Authorization: `Bearer ${authToken.access_token}`,
-              },
-            });
+            const response1 = await axios.get(
+              "http://localhost:8000/users/me",
+              {
+                headers: {
+                  Authorization: `Bearer ${authToken.access_token}`,
+                },
+              }
+            );
             const username = response1.data.user_name;
+            const userId = response1.data.user_id;
+            console.log("Userid",userId);
             localStorage.setItem("username", username);
+            localStorage.setItem("userId", userId);
+            try {
+              const res = await axios.get(
+                `http://localhost:8000/users/${userId}`
+              );
+              // Handle the response data
+              const role = res.data.role;
+              localStorage.setItem("role", role);
+              console.log("date",res.data);
+            } catch (error) {
+              // Handle errors
+              console.error("Error fetching user data:", error);
+            }
+
             isLoggedIn = true;
-            navigate("/", { state: {isLoggedIn :{isLoggedIn}, username: {username} } });
+            navigate("/", {
+              state: { isLoggedIn: { isLoggedIn }, username: { username } },
+            });
           } catch (error) {
             console.error("Error parsing auth token:", error);
           }

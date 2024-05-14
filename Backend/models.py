@@ -12,6 +12,7 @@ class Users(Base):
     Username = Column(String,nullable=False)
     email = Column(String,nullable=False)
     password = Column(String,nullable=False)
+    role = Column(String,nullable=False)
     
 class Expert(Base):
     __tablename__ = "experts"

@@ -14,7 +14,7 @@ import CreatePost from "./components/SideNavbar/CreatePost";
 import TaskCalendarPage from "./pages/TaskCalendarPage";
 import CropDetailsPage from "./pages/CropDetailsPage";
 import ForgotPassword from "./pages/ForgotPassword";
-
+import Profile from "./pages/Profile";
 import About from "./pages/About";
 import { ThemeProvider } from "styled-components";
 const App = () => {
@@ -98,6 +98,7 @@ const App = () => {
           <Route path="/cropinfo" element={<CropInfoPage />} />
           <Route path="/calender" element={<TaskCalendarPage />} />
           <Route path="/about" element={<About />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<h1>Not Found</h1>} />
         </Routes>
         {/* <FloatingChatButton onClick={toggleChat} />

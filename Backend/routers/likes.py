@@ -56,5 +56,6 @@ def count_post_likes_dislikes(post_id: int, db: Session = Depends(get_db)):
         )
     
     return {"likes_count": likes_count, "dislikes_count": dislikes_count}
+
     
     

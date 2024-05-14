@@ -29,7 +29,7 @@ function TimeLine() {
         throw new Error("Failed to fetch posts");
       }
       const data = await response.json();
-      console.log(data);
+      // console.log(data[0].author_id);
       setPostData(data);
     } catch (error) {
       console.error("Error fetching posts:", error);
@@ -52,6 +52,7 @@ function TimeLine() {
             image_url={post.image_url}
             like_count={post.likes_count}
             dislike_count = {post.dislike_count}
+            author_id ={post.author_id}
           />
         ))}
       </div>

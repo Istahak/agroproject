@@ -5,6 +5,8 @@ import axios from "axios";
 const Conversations = () => {
   const [experts, setExperts] = useState([]);
   const [allExperts, setAllExperts] = useState([]);
+  const [userrole, setuserrole] = useState(localStorage.getItem("role"));
+  // console.log("current",userrole);
   // Function to filter experts based on search term
   const handleFilter = (searchTerm) => {
     if (!searchTerm) {
@@ -22,10 +24,13 @@ const Conversations = () => {
   useEffect(() => {
     const fetchExperts = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/experts");
+        const response =
+          userrole === "user"
+            ? await axios.get(`http://localhost:8000/usersrole/expert`)
+            : await axios.get(`http://localhost:8000/usersrole/user`);
         const expertsArray = response.data.map((expert) => ({
           id: expert.id,
-          Name: expert.name,
+          Name: expert.Username,
         }));
         setExperts(expertsArray);
         setAllExperts(expertsArray);

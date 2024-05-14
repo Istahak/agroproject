@@ -11,10 +11,11 @@ class User(BaseModel):
     Username: str
     email: EmailStr
     password: str
+    role: str
 
 class UserOut(User):
     id: int
-    username: str
+    # username: str
     email: EmailStr
     class Config:
         orm_mode = True

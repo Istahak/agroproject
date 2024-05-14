@@ -15,7 +15,6 @@ const SignUpPage = () => {
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [emailRegistered, setEmailRegistered] = useState(false);
 
-
   const navigate = useNavigate();
   const [token, setToken] = useState(
     JSON.parse(localStorage.getItem("auth")) || ""
@@ -28,13 +27,15 @@ const SignUpPage = () => {
     let email = e.target.email.value;
     let password = e.target.password.value;
     let confirmPassword = e.target.confirmPassword.value;
+    let role = e.target.role.value;
 
     if (
       name.length > 0 &&
       lastname.length > 0 &&
       email.length > 0 &&
       password.length > 0 &&
-      confirmPassword.length > 0
+      confirmPassword.length > 0 &&
+      role.length > 0
     ) {
       if (password === confirmPassword) {
         setPasswordsMatch(true);
@@ -43,6 +44,7 @@ const SignUpPage = () => {
           Username: name + " " + lastname,
           email: email,
           password: password,
+          role: role,
         };
 
         try {
@@ -156,6 +158,13 @@ const SignUpPage = () => {
                   />
                 )}
               </div>
+              <div className="role-selection">
+                <select name="role" required>
+                  <option value="">Choose a role</option>
+                  <option value="user">User</option>
+                  <option value="expert">Expert</option>
+                </select>
+              </div>
               <span
                 className="pass-text"
                 style={{ visibility: passwordsMatch ? "hidden" : "visible" }}
@@ -163,12 +172,12 @@ const SignUpPage = () => {
                 Password didn't match
               </span>
 
-              
-                <span className="email-text" style={{visibility: emailRegistered ? "visible" : "hidden"}}>
-                  This email is already registered. Please use a different
-                  email.
-                </span>
-              
+              <span
+                className="email-text"
+                style={{ visibility: emailRegistered ? "visible" : "hidden" }}
+              >
+                This email is already registered. Please use a different email.
+              </span>
 
               <div className="register-center-buttons">
                 <button type="submit">Sign Up</button>

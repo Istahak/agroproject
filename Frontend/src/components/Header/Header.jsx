@@ -22,6 +22,9 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
     setIsLoggedIn(false);
     localStorage.removeItem("auth");
     localStorage.removeItem("username");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("proileId");
+    localStorage.removeItem("role");
   };
 
   return (

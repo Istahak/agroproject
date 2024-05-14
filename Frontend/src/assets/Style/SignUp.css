@@ -23,7 +23,10 @@
   left: -10px;
   /* right: -10px; */
   /* bottom: -10px; */
-  background: linear-gradient(rgba(114, 189, 251, 0.2), rgba(154, 245, 126, 0.2));
+  background: linear-gradient(
+    rgba(114, 189, 251, 0.2),
+    rgba(154, 245, 126, 0.2)
+  );
   border-radius: inherit;
   z-index: 1;
 }
@@ -208,4 +211,26 @@ form button[type="submit"] {
   color: red;
   font-size: 13px;
   margin-top: 5px;
+}
+.role-selection {
+  margin-top: 20px;
+}
+
+.role-selection p {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.role-selection select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.role-selection select:focus {
+  outline: none;
+  border-color: #007bff; /* Change color to your desired focus color */
 }

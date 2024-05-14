@@ -8,13 +8,15 @@ import ThumbDownOffAltIcon from '@mui/icons-material/ThumbDownOffAlt';
 import ThumbDownAltIcon from '@mui/icons-material/ThumbDownAlt';
 import CommentIcon from "@mui/icons-material/Comment";
 import axios from "axios";
-import { Link } from "react-router-dom";
-function Post({ id, name, time, text, image_url, like_count, dislike_count }) {
+import { Link,useNavigate } from "react-router-dom";
+function Post({ id, name, time, text, image_url, like_count, dislike_count,author_id}) {
   const [liked, setLiked] = useState(false);
   const [disLiked, setDisLiked] = useState(false);
   const [likeCount, setLikeCount] = useState(like_count);
   const [dislikeCount, setDisLikeCount] = useState(dislike_count);
-
+  const navigate = useNavigate();
+  const [postautorid,setpostautorid] = useState();
+  // console.log("authorid",author_id)
   useEffect(() => {
     // Fetch updated likes and dislikes count after component mount
     async function fetchPostLikesDislikesCount() {
@@ -84,12 +86,18 @@ function Post({ id, name, time, text, image_url, like_count, dislike_count }) {
       console.error("Error disliking post:", error);
     }
   };
+
+  const onclickhandlername = () => {
+    console.log("authorid",author_id)
+    localStorage.setItem("profileId", author_id);
+    navigate(`/profile`);
+  };
   
   return (
     <div className="post">
       <div className="postHeader">
         <PersonIcon className="head" />
-        <span className="head">{name}</span>
+        <span className="head" onClick={onclickhandlername}>{name}</span>
         <AccessTimeFilledIcon className="head" />
         <span className="head">{time}</span>
       </div>
